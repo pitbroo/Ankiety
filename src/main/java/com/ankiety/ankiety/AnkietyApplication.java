@@ -10,4 +10,5 @@ public class AnkietyApplication {
         SpringApplication.run(AnkietyApplication.class, args);
     }
 
+    /*Test*/
 }
