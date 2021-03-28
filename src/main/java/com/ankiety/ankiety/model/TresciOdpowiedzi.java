@@ -16,12 +16,7 @@ public class TresciOdpowiedzi {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTresciOdpowiedzi;
 
-    @ManyToMany(fetch = FetchType.LAZY,
-        cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-        },
-        mappedBy = "tresciOdpowiedzi")
+    @ManyToMany(mappedBy = "tresciOdpowiedzi")
     private Set<Ankiety> ankiety = new HashSet<>();
 
     public TresciOdpowiedzi() {

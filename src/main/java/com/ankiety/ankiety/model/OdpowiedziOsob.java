@@ -4,17 +4,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-public class Osoby {
+public class OdpowiedziOsob {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idOsoby;
-    private int IPv4;
-    @OneToMany(mappedBy = "osoby")
-    private Set<OdpowiedziOsob> odpowiedziOsob;
+    private int idOdpowiedzi;
+    @ManyToOne
+    @JoinColumn(name = "id_osoby")
+    private Osoby osoby;
+    private int idPytania;
+    private int idTresciOdpowiedzi;
 }
