@@ -11,11 +11,11 @@ import javax.persistence.*;
 public class Komentarze {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idKomentarza;
+    private int idOdpowiedzi;
     private String trescKomentarza;
 
-    @ManyToOne
+    @OneToOne
+    @MapsId
     @JoinColumn(name = "id_odpowiedzi")
     private OdpowiedziOsob odpowiedziOsob;
 }

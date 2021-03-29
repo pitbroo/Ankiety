@@ -23,6 +23,7 @@ public class OdpowiedziOsob {
     @ManyToOne
     @JoinColumn(name = "id_tresci_odpowiedzi")
     private TresciOdpowiedzi tresciOdpowiedzi;
-    @OneToMany(mappedBy = "odpowiedziOsob")
-    private Set<Komentarze> komentarze;
+    @OneToOne(mappedBy = "odpowiedziOsob")
+    @PrimaryKeyJoinColumn
+    private Komentarze komentarze;
 }
