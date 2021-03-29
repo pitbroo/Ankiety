@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,6 +17,12 @@ public class OdpowiedziOsob {
     @ManyToOne
     @JoinColumn(name = "id_osoby")
     private Osoby osoby;
-    private int idPytania;
-    private int idTresciOdpowiedzi;
+    @ManyToOne
+    @JoinColumn(name = "id_pytania")
+    private Ankiety ankiety;
+    @ManyToOne
+    @JoinColumn(name = "id_tresci_odpowiedzi")
+    private TresciOdpowiedzi tresciOdpowiedzi;
+    @OneToMany(mappedBy = "odpowiedziOsob")
+    private Set<Komentarze> komentarze;
 }

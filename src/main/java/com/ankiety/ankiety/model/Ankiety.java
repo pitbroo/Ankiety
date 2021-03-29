@@ -24,6 +24,9 @@ public class Ankiety {
         inverseJoinColumns = {@JoinColumn(name = "id_tresci_odpowiedzi") })
     private Set<TresciOdpowiedzi> tresciOdpowiedzi = new HashSet<>();
 
+    @OneToMany(mappedBy = "ankiety")
+    private Set<OdpowiedziOsob> odpowiedziOsob;
+
     public Ankiety() {
     }
 }

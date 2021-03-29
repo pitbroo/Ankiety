@@ -15,9 +15,12 @@ public class TresciOdpowiedzi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTresciOdpowiedzi;
+    private String trescOdpowiedzi;
 
     @ManyToMany(mappedBy = "tresciOdpowiedzi")
     private Set<Ankiety> ankiety = new HashSet<>();
+    @OneToMany(mappedBy = "tresciOdpowiedzi")
+    private Set<OdpowiedziOsob> odpowiedziOsob;
 
     public TresciOdpowiedzi() {
     }
