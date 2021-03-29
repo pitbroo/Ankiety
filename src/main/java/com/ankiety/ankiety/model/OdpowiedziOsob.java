@@ -14,6 +14,7 @@ public class OdpowiedziOsob {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idOdpowiedzi;
+
     @ManyToOne
     @JoinColumn(name = "id_osoby")
     private Osoby osoby;
