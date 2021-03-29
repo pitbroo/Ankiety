@@ -15,14 +15,12 @@ public class TresciOdpowiedzi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTresciOdpowiedzi;
+    private String trescOdpowiedzi;
 
-    @ManyToMany(fetch = FetchType.LAZY,
-        cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-        },
-        mappedBy = "tresciOdpowiedzi")
+    @ManyToMany(mappedBy = "tresciOdpowiedzi")
     private Set<Ankiety> ankiety = new HashSet<>();
+    @OneToMany(mappedBy = "tresciOdpowiedzi")
+    private Set<OdpowiedziOsob> odpowiedziOsob;
 
     public TresciOdpowiedzi() {
     }
