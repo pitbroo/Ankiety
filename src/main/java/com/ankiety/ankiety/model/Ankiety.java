@@ -29,4 +29,7 @@ public class Ankiety {
 
     public Ankiety() {
     }
+
+
+    //komętarz
 }
