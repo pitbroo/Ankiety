@@ -4,8 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,15 +17,19 @@ public class Ankiety {
     private String nazwaAnkiety;
     private String pytanie;
 
+
+   //@JsonIgnoreProperties("ankiety")
     @ManyToMany
     @JoinTable(name = "odpowiedzi",
         joinColumns = {@JoinColumn(name = "id_pytania")},
         inverseJoinColumns = {@JoinColumn(name = "id_tresci_odpowiedzi") })
-    private Set<TresciOdpowiedzi> tresciOdpowiedzi = new HashSet<>();
+    private List<TresciOdpowiedzi> tresciOdpowiedzi;
 
+
+    //@JsonIgnoreProperties("ankiety")
     @OneToMany(mappedBy = "ankiety")
-    private Set<OdpowiedziOsob> odpowiedziOsob;
+    private List<OdpowiedziOsob> odpowiedziOsob;
 
-    public Ankiety() {
-    }
+
+
 }

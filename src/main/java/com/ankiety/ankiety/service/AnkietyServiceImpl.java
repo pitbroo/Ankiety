@@ -1,10 +1,12 @@
 package com.ankiety.ankiety.service;
 
 import com.ankiety.ankiety.model.Ankiety;
+import com.ankiety.ankiety.model.dto.AnkietyDto;
 import com.ankiety.ankiety.repository.AnkietyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AnkietyServiceImpl implements AnkietyService {
@@ -16,8 +18,11 @@ public class AnkietyServiceImpl implements AnkietyService {
     }
 
     @Override
-    public List<Ankiety> getAnkiety() {
-        return ankietyRepository.findAll();
+    public List<AnkietyDto> getAnkiety() {
+       return ankietyRepository.findAll()
+                .stream()
+                .map(AnkietyDto::new)
+                .collect(Collectors.toList());
     }
 
     @Override

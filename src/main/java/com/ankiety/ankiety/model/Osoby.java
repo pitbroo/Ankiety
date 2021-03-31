@@ -4,7 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
+import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Entity
 @Getter
@@ -14,7 +15,8 @@ public class Osoby {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idOsoby;
-    private int IPv4;
+    @NotBlank(message = "Wartość IPv4 nie może być pusta!")
+    private String IPv4;
     @OneToMany(mappedBy = "osoby")
-    private Set<OdpowiedziOsob> odpowiedziOsob;
+    private List<OdpowiedziOsob> odpowiedziOsob;
 }

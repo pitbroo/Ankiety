@@ -1,28 +1,30 @@
 package com.ankiety.ankiety.controller;
 
 import com.ankiety.ankiety.model.Osoby;
-import com.ankiety.ankiety.repository.OsobyRepository;
+import com.ankiety.ankiety.service.OsobyService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/osoby")
 public class OsobyController {
 
-    private final OsobyRepository osobyRepository;
+    private final OsobyService osobyService;
 
-    public OsobyController(OsobyRepository osobyRepository) {
-        this.osobyRepository = osobyRepository;
+    public OsobyController(OsobyService osobyService) {
+        this.osobyService = osobyService;
     }
+
 
     @GetMapping
     public List<Osoby> getOsoby(){
-        return osobyRepository.findAll();
+        return osobyService.getOsoby();
     }
 
     @PostMapping
-    public Osoby addOsoby(@RequestBody Osoby osoby){
-        return osobyRepository.save(osoby);
+    public Osoby addOsoby(@RequestBody @Valid Osoby osoba){
+        return osobyService.addOsoba(osoba);
     }
 }
