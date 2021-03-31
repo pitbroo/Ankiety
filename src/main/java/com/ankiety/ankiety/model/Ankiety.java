@@ -31,5 +31,4 @@ public class Ankiety {
     private List<OdpowiedziOsob> odpowiedziOsob;
 
 
-
 }
