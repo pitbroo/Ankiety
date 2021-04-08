@@ -4,6 +4,10 @@ import com.ankiety.ankiety.model.Ankiety;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AnkietyRepository extends JpaRepository<Ankiety, Integer> {
+
+    List<Ankiety> findAllByNazwaAnkiety(String nazwaAnkiety);
 }

@@ -21,6 +21,10 @@ public class AnkietyController {
     public List<AnkietyDto> getAnkiety(){
         return ankietyService.getAnkiety();
     }
+    @GetMapping("/{ankieta}")
+    public List<String> getAnkietaPytania(@PathVariable String ankieta){
+        return ankietyService.getAnkietaPytania(ankieta);
+    }
 
     @PostMapping
     public Ankiety addAnkieta(@RequestBody Ankiety ankiety){
