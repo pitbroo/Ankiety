@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ankiety")
+@CrossOrigin("*")
 public class AnkietyController {
 
     private AnkietyService ankietyService;
