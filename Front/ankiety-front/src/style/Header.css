@@ -1,0 +1,9 @@
+.carousel-item {
+    height: 45vh;
+    min-height: 350px;
+
+  }
+  .carousel-item{
+      background-image: url('https://source.unsplash.com/RCAhiGJsUUE/1920x1080')
+    
+}

@@ -1,13 +1,18 @@
 
-import './App.css';
+import './style/App.css';
 import './Ankiety.js'
+import Header from './Header.js'
 import Ankiety from './Ankiety.js';
+import Footer from './Footer.js';
+
 
 function App() {
   return (
     <div className="App">
-    <h1>Ankiety Knapika</h1>
+      
+    <Header />
     <Ankiety/>
+    <Footer />
 
     </div>
   );
