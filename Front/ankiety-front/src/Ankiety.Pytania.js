@@ -17,7 +17,7 @@ const Pytania = ({pytania}) => {
                     {pytanie.tresciOdpowiedzi.map(odpowiedzi => 
                         
                         <li>
-                            <input type="radio" value={odpowiedzi.trescOdpowiedzi}/> {odpowiedzi.trescOdpowiedzi}
+                            <input type="radio" value={odpowiedzi.trescOdpowiedzi} name={pytanie.pytanie}/> {odpowiedzi.trescOdpowiedzi}
                         </li>
                     )}
                    </ul>
