@@ -1,11 +1,11 @@
 package com.ankiety.ankiety.controller;
 
+import com.ankiety.ankiety.model.TresciOdpowiedzi;
 import com.ankiety.ankiety.model.dto.TresciOdpowiedziDto;
 import com.ankiety.ankiety.service.TresciOdpowiedziService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,5 +22,10 @@ public class TresciOdpowiedziController {
     @GetMapping
     public List<TresciOdpowiedziDto> getTresciOdpowiedzi(){
         return tresciOdpowiedziService.getTresciOdpowiedzi();
+    }
+
+    @PostMapping
+    public TresciOdpowiedzi addTrescOdpowiedzi(@RequestBody @Valid TresciOdpowiedzi trescOdpowiedzi){
+        return tresciOdpowiedziService.addTrescOdpowiedzi(trescOdpowiedzi);
     }
 }

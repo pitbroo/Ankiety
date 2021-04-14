@@ -1,5 +1,6 @@
 package com.ankiety.ankiety.service;
 
+import com.ankiety.ankiety.model.TresciOdpowiedzi;
 import com.ankiety.ankiety.model.dto.TresciOdpowiedziDto;
 import com.ankiety.ankiety.repository.TresciOdpowiedziRepository;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,14 @@ public class TresciOdpowiedziServiceImpl implements TresciOdpowiedziService {
                 .stream()
                 .map(TresciOdpowiedziDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public TresciOdpowiedzi addTrescOdpowiedzi(TresciOdpowiedzi trescOdpowiedzi) {
+
+        if(tresciOdpowiedziRepository.existsByTrescOdpowiedzi(trescOdpowiedzi.getTrescOdpowiedzi())){
+            throw new IllegalStateException("Odpowiedz '" + trescOdpowiedzi.getTrescOdpowiedzi() + "' juz jest w bazie danych.");
+        }
+            return tresciOdpowiedziRepository.save(trescOdpowiedzi);
     }
 }

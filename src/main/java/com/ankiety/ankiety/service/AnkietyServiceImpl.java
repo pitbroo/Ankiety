@@ -27,11 +27,20 @@ public class AnkietyServiceImpl implements AnkietyService {
 
     @Override
     public List<String> getAnkietaPytania(String nazwaAnkiety) {
+
         return ankietyRepository.findAllByNazwaAnkiety(nazwaAnkiety)
                 .stream()
                 .map(Ankiety::getPytanie)
                 .collect(Collectors.toList());
     }
+    @Override
+    public List<AnkietyDto> getAnkietyPytaniaOdpowiedzi(String nazwaAnkiety) {
+        return ankietyRepository.findAllByNazwaAnkiety(nazwaAnkiety)
+                .stream()
+                .map(AnkietyDto::new)
+                .collect(Collectors.toList());
+    }
+
     @Override
     public Ankiety addAnkiety(Ankiety ankiety) {
         return ankietyRepository.save(ankiety);

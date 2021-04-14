@@ -5,6 +5,7 @@ import com.ankiety.ankiety.model.dto.AnkietyDto;
 import com.ankiety.ankiety.service.AnkietyService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -22,13 +23,19 @@ public class AnkietyController {
     public List<AnkietyDto> getAnkiety(){
         return ankietyService.getAnkiety();
     }
+
     @GetMapping("/{ankieta}")
     public List<String> getAnkietaPytania(@PathVariable String ankieta){
         return ankietyService.getAnkietaPytania(ankieta);
     }
 
+    @GetMapping("/odpowiedzi/{ankieta}")
+    public List<AnkietyDto> getAnkietyPytaniaOdpowiedzi(@PathVariable String ankieta){
+        return ankietyService.getAnkietyPytaniaOdpowiedzi(ankieta);
+    }
+
     @PostMapping
-    public Ankiety addAnkieta(@RequestBody Ankiety ankiety){
+    public Ankiety addAnkieta(@RequestBody @Valid Ankiety ankiety){
         return ankietyService.addAnkiety(ankiety);
     }
 

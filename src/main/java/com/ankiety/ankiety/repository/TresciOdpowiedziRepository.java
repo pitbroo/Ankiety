@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TresciOdpowiedziRepository extends JpaRepository<TresciOdpowiedzi, Integer> {
+    boolean existsByTrescOdpowiedzi(String trescOdpowiedzi);
 }
