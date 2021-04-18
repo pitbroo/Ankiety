@@ -45,4 +45,9 @@ public class AnkietyServiceImpl implements AnkietyService {
     public Ankiety addAnkiety(Ankiety ankiety) {
         return ankietyRepository.save(ankiety);
     }
+
+    @Override
+    public List<String> getAnkietyNazwa() {
+        return ankietyRepository.findDistinctByNazwaAnkiety();
+    }
 }

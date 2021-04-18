@@ -11,4 +11,5 @@ public interface AnkietyService {
     Ankiety addAnkiety(Ankiety ankiety);
     List<String> getAnkietaPytania(String nazwaAnkiety);
     List<AnkietyDto> getAnkietyPytaniaOdpowiedzi(String nazwaAnkiety);
+    List<String> getAnkietyNazwa();
 }
