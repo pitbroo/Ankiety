@@ -7,6 +7,9 @@ public class TresciOdpowiedziDto {
     private int idTresciOdpowiedzi;
     private String trescOdpowiedzi;
 
+    public TresciOdpowiedziDto() {
+    }
+
     public TresciOdpowiedziDto(TresciOdpowiedzi source) {
         this.idTresciOdpowiedzi = source.getIdTresciOdpowiedzi();
         this.trescOdpowiedzi = source.getTrescOdpowiedzi();

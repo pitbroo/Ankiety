@@ -3,7 +3,6 @@ package com.ankiety.ankiety.controller;
 import com.ankiety.ankiety.model.Ankiety;
 import com.ankiety.ankiety.model.dto.AnkietyDto;
 import com.ankiety.ankiety.service.AnkietyService;
-import com.fasterxml.jackson.databind.deser.DataFormatReaders;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -36,7 +35,7 @@ public class AnkietyController {
     }
 
     @PostMapping
-    public Ankiety addAnkieta(@RequestBody @Valid Ankiety ankiety){
+    public Ankiety addAnkieta(@RequestBody @Valid AnkietyDto ankiety){
         return ankietyService.addAnkiety(ankiety);
     }
 
@@ -44,7 +43,5 @@ public class AnkietyController {
     public List<String> getAnkietyNazwa(){
         return ankietyService.getAnkietyNazwa();
     }
-
-
 
 }

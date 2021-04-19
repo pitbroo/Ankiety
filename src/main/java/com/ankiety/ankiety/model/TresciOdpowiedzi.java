@@ -17,12 +17,42 @@ public class TresciOdpowiedzi {
     private int idTresciOdpowiedzi;
     private String trescOdpowiedzi;
 
+    public TresciOdpowiedzi() {
 
-    @ManyToMany(mappedBy = "tresciOdpowiedzi")
+    }
+
+    public TresciOdpowiedzi(int idTresciOdpowiedzi, String trescOdpowiedzi) {
+        this.idTresciOdpowiedzi = idTresciOdpowiedzi;
+        this.trescOdpowiedzi = trescOdpowiedzi;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "tresciOdpowiedzi")
     private List<Ankiety> ankiety = new ArrayList<>();
 
     /*@OneToMany(mappedBy = "tresciOdpowiedzi")
     private List<OdpowiedziOsob> odpowiedziOsob = new ArrayList();*/
 
+    public int getIdTresciOdpowiedzi() {
+        return idTresciOdpowiedzi;
+    }
 
+    public void setIdTresciOdpowiedzi(int idTresciOdpowiedzi) {
+        this.idTresciOdpowiedzi = idTresciOdpowiedzi;
+    }
+
+    public String getTrescOdpowiedzi() {
+        return trescOdpowiedzi;
+    }
+
+    public void setTrescOdpowiedzi(String trescOdpowiedzi) {
+        this.trescOdpowiedzi = trescOdpowiedzi;
+    }
+
+    public List<Ankiety> getAnkiety() {
+        return ankiety;
+    }
+
+    public void setAnkiety(List<Ankiety> ankiety) {
+        this.ankiety = ankiety;
+    }
 }

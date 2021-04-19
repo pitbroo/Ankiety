@@ -1,7 +1,9 @@
 package com.ankiety.ankiety.model.dto;
 
 import com.ankiety.ankiety.model.Ankiety;
+import com.ankiety.ankiety.model.OdpowiedziOsob;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +13,10 @@ public class AnkietyDto {
     private String nazwaAnkiety;
     private String pytanie;
     private List<TresciOdpowiedziDto> tresciOdpowiedzi;
+    private List<OdpowiedziOsob> odpowiedziOsobs = new ArrayList<>();
+
+    public AnkietyDto() {
+    }
 
     public AnkietyDto(Ankiety source) {
         this.idPytania = source.getIdPytania();
@@ -49,5 +55,13 @@ public class AnkietyDto {
 
     public void setTresciOdpowiedzi(List<TresciOdpowiedziDto> tresciOdpowiedzi) {
         this.tresciOdpowiedzi = tresciOdpowiedzi;
+    }
+
+    public List<OdpowiedziOsob> getOdpowiedziOsobs() {
+        return odpowiedziOsobs;
+    }
+
+    public void setOdpowiedziOsobs(List<OdpowiedziOsob> odpowiedziOsobs) {
+        this.odpowiedziOsobs = odpowiedziOsobs;
     }
 }

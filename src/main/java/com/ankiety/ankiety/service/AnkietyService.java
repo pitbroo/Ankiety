@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface AnkietyService {
     List<AnkietyDto> getAnkiety();
-    Ankiety addAnkiety(Ankiety ankiety);
+    Ankiety addAnkiety(AnkietyDto ankiety);
     List<String> getAnkietaPytania(String nazwaAnkiety);
     List<AnkietyDto> getAnkietyPytaniaOdpowiedzi(String nazwaAnkiety);
     List<String> getAnkietyNazwa();
