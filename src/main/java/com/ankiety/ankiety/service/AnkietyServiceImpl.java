@@ -8,6 +8,7 @@ import com.ankiety.ankiety.repository.TresciOdpowiedziRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -48,12 +49,17 @@ public class AnkietyServiceImpl implements AnkietyService {
     @Override
     public Ankiety addAnkiety(AnkietyDto ankietyDto) {
         Ankiety ankiety = new Ankiety(ankietyDto);
-        List<TresciOdpowiedzi> tresciOdpowiedzi = ankiety.getTresciOdpowiedzi();
-        tresciOdpowiedzi.forEach(trescOdpowiedzi -> {
-            if(tresciOdpowiedziRepository.existsByTrescOdpowiedzi(trescOdpowiedzi.getTrescOdpowiedzi())) {
-                System.out.println("Odpowiedz '" + trescOdpowiedzi.getTrescOdpowiedzi() + "' juz jest w bazie danych.");
-                System.out.println(tresciOdpowiedziRepository.findByTrescOdpowiedzi(trescOdpowiedzi.getTrescOdpowiedzi()).getIdTresciOdpowiedzi());
-                throw new IllegalStateException("Odpowiedz '" + trescOdpowiedzi.getTrescOdpowiedzi() + "' juz jest w bazie danych.");
+        ankiety.getTresciOdpowiedzi().clear();
+
+        ankietyDto.getTresciOdpowiedzi().forEach(trescOdpowiedzi -> {
+                    Optional<TresciOdpowiedzi> tresciOdpowiedziOptional = tresciOdpowiedziRepository.findByTrescOdpowiedzi(trescOdpowiedzi.getTrescOdpowiedzi());
+            if(tresciOdpowiedziOptional.isPresent()){
+                TresciOdpowiedzi odpowiedz = tresciOdpowiedziOptional.get();
+                System.out.println("Odpowiedz '" + odpowiedz + "' juz jest w bazie danych.");
+                ankiety.getTresciOdpowiedzi().add(odpowiedz);
+            }else{
+                TresciOdpowiedzi nowaOdpowiedz = new TresciOdpowiedzi(trescOdpowiedzi.getTrescOdpowiedzi());
+                ankiety.getTresciOdpowiedzi().add(nowaOdpowiedz);
             }
         }
         );

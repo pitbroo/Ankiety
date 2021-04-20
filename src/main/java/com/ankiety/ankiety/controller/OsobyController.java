@@ -17,7 +17,6 @@ public class OsobyController {
         this.osobyService = osobyService;
     }
 
-
     @GetMapping
     public List<Osoby> getOsoby(){
         return osobyService.getOsoby();

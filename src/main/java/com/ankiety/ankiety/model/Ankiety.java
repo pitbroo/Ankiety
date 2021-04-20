@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,12 +42,12 @@ public class Ankiety {
     @JoinTable(name = "odpowiedzi",
         joinColumns = {@JoinColumn(name = "id_pytania")},
         inverseJoinColumns = {@JoinColumn(name = "id_tresci_odpowiedzi") })
-    private List<TresciOdpowiedzi> tresciOdpowiedzi;
+    private List<TresciOdpowiedzi> tresciOdpowiedzi = new ArrayList<>();
 
 
     //@JsonIgnoreProperties("ankiety")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ankiety")
-    private List<OdpowiedziOsob> odpowiedziOsob;
+    private List<OdpowiedziOsob> odpowiedziOsob = new ArrayList<>();
 
 
 }

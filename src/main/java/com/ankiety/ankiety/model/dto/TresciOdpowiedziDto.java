@@ -1,7 +1,11 @@
 package com.ankiety.ankiety.model.dto;
 
 import com.ankiety.ankiety.model.TresciOdpowiedzi;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TresciOdpowiedziDto {
 
     private int idTresciOdpowiedzi;
@@ -15,19 +19,4 @@ public class TresciOdpowiedziDto {
         this.trescOdpowiedzi = source.getTrescOdpowiedzi();
     }
 
-    public int getIdTresciOdpowiedzi() {
-        return idTresciOdpowiedzi;
-    }
-
-    public void setIdTresciOdpowiedzi(int idTresciOdpowiedzi) {
-        this.idTresciOdpowiedzi = idTresciOdpowiedzi;
-    }
-
-    public String getTrescOdpowiedzi() {
-        return trescOdpowiedzi;
-    }
-
-    public void setTrescOdpowiedzi(String trescOdpowiedzi) {
-        this.trescOdpowiedzi = trescOdpowiedzi;
-    }
 }
