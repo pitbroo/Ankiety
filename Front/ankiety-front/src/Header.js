@@ -1,5 +1,6 @@
 import React from 'react';
-import "./style/Header.css"
+import "./style/Header.css";
+import {BrowserRouter as Router, Link } from 'react-router-dom';
 
 class Header extends React.Component {
     render() {
@@ -16,18 +17,24 @@ class Header extends React.Component {
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">Strona Głowna
-                <span class="sr-only">(current)</span>
+                                    <Link to="/">
+                                    <a class="nav-link" >Strona Głowna
+                                    <span class="sr-only">(current)</span>
                                     </a>
+                                    </Link>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="https://www.vistula.edu.pl/en">Vistula</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Ankiety</a>
+                                    <Link to="/Ankiety">
+                                    <a class="nav-link" href="/Ankiety">Ankiety</a>
+                                    </Link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Dodaj Ankietę</a>
+                                    <Link to="/DodajAnkiete">
+                                    <a class="nav-link">Dodaj Ankietę</a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

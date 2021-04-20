@@ -75,10 +75,6 @@ class Ankiety extends React.Component{
                 </div>
                 
                 <Pytania pytania={this.state.ListaAnkiety} nazwaAnkiety={this.state.nazwaAnkiety} />
-                <div className="AnkietyWiki">
-                    <h3>Czym jest ankietowanie</h3>
-                    Jedna z metod badań społecznych, w której do zbierania informacji od respondentów wykorzystuje się wystandaryzowany kwestionariusz. Dla ustalenia badanej populacji konsumentów stosuje się dobór losowy, gdy niewielka jest ich liczba i nieznana ich struktura, dobór losowy systematyczny, gdy dostępna jest lista całej populacji oraz dobór losowy warstwowy dla uzyskania bardziej dokładnych wyników charakteryzujących badanych.W socjologii polega na rozdawaniu respondentom kwestionariuszy z pytaniami, z prośbą o ich wypełnienie. Wyróżnia się różne techniki ankietowe, m.in. są to ankieta pocztowa, ankieta audytoryjna. Mniej precyzyjne, często używane przez osoby nie prowadzące badań, są ankiety prasowe. Ankieta w odróżnieniu od kwestionariusza jest anonimowa i zawiera m.in. pytania otwarte.
-                </div>
             
             </div>
         )
