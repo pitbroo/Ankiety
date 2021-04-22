@@ -11,11 +11,12 @@ import javax.persistence.*;
 public class Komentarze {
 
     @Id
-    private int idOdpowiedzi;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idKomentarza;
     private String trescKomentarza;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id_odpowiedzi")
-    private OdpowiedziOsob odpowiedziOsob;
+   /* @OneToOne(cascade = CascadeType.ALL, mappedBy = "komentarze")
+    //@MapsId
+    //@JoinColumn(name = "id_komentarza")
+    private OdpowiedziOsob odpowiedziOsob;*/
 }

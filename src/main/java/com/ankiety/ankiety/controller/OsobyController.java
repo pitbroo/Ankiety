@@ -1,6 +1,7 @@
 package com.ankiety.ankiety.controller;
 
 import com.ankiety.ankiety.model.Osoby;
+import com.ankiety.ankiety.model.dto.OsobyDto;
 import com.ankiety.ankiety.service.OsobyService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class OsobyController {
     }
 
     @GetMapping
-    public List<Osoby> getOsoby(){
+    public List<OsobyDto> getOsoby(){
         return osobyService.getOsoby();
     }
 

@@ -3,9 +3,11 @@ package com.ankiety.ankiety.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
 @Entity
 @Getter
@@ -17,6 +19,6 @@ public class Osoby {
     private int idOsoby;
     @NotBlank(message = "Wartość IPv4 nie może być pusta!")
     private String IPv4;
-    @OneToMany(mappedBy = "osoby")
-    private List<OdpowiedziOsob> odpowiedziOsob;
+    /*@OneToMany(mappedBy = "osoby")
+    private List<OdpowiedziOsob> odpowiedziOsob;*/
 }

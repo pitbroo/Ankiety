@@ -34,7 +34,7 @@ public class Ankiety {
                                 tresciOdpowiedzi.getIdTresciOdpowiedzi(),
                                 tresciOdpowiedzi.getTrescOdpowiedzi()))
                 .collect(Collectors.toList());
-        this.odpowiedziOsob = source.getOdpowiedziOsobs();
+        //this.odpowiedziOsob = source.getOdpowiedziOsobs();
     }
 
     //@JsonIgnoreProperties("ankiety")
@@ -45,9 +45,9 @@ public class Ankiety {
     private List<TresciOdpowiedzi> tresciOdpowiedzi = new ArrayList<>();
 
 
-    //@JsonIgnoreProperties("ankiety")
+    /*//@JsonIgnoreProperties("ankiety")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ankiety")
-    private List<OdpowiedziOsob> odpowiedziOsob = new ArrayList<>();
+    private List<OdpowiedziOsob> odpowiedziOsob = new ArrayList<>();*/
 
 
 }

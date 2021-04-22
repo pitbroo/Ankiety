@@ -1,10 +1,12 @@
 package com.ankiety.ankiety.service;
 
 import com.ankiety.ankiety.model.Osoby;
+import com.ankiety.ankiety.model.dto.OsobyDto;
 import com.ankiety.ankiety.repository.OsobyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OsobyServiceImpl implements OsobyService {
@@ -16,8 +18,11 @@ public class OsobyServiceImpl implements OsobyService {
     }
 
     @Override
-    public List<Osoby> getOsoby() {
-        return osobyRepository.findAll();
+    public List<OsobyDto> getOsoby() {
+        return osobyRepository.findAll()
+                .stream()
+                .map(OsobyDto::new)
+                .collect(Collectors.toList());
     }
 
     @Override

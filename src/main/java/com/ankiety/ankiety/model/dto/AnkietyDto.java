@@ -1,7 +1,6 @@
 package com.ankiety.ankiety.model.dto;
 
 import com.ankiety.ankiety.model.Ankiety;
-import com.ankiety.ankiety.model.OdpowiedziOsob;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +16,7 @@ public class AnkietyDto {
     private String nazwaAnkiety;
     private String pytanie;
     private List<TresciOdpowiedziDto> tresciOdpowiedzi = new ArrayList<>();
-    private List<OdpowiedziOsob> odpowiedziOsobs = new ArrayList<>();
+    //private List<OdpowiedziOsob> odpowiedziOsobs = new ArrayList<>();
 
     public AnkietyDto() {
     }
