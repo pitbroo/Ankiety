@@ -4,15 +4,16 @@ import "./style/Ankiety.css"
 import Button from 'react-bootstrap/Button';
 import Ankiety from './Ankiety';
 
-const Pytania = ({pytania, nazwaAnkiety}) => {
+const Pytania = ({pytania, nazwaAnkiety, wybranaAnkieta}) => {
 
     let i = 1;
     return(
         <div className="AnkietyKontener">
         <h1>{nazwaAnkiety}</h1>{}
-        <ul >
+        <ul>
             
             {pytania.map(pytanie => 
+            
                 <li key={pytanie.idPytania}>
                     <b className="Pytanie">{i++}. {pytanie.pytanie}</b>
                     
@@ -25,12 +26,18 @@ const Pytania = ({pytania, nazwaAnkiety}) => {
                         </li>
                     )}
                    </ul>
+                   <p>Komentarz(niewymagane):</p>
+                    <textarea className="formKometarz"></textarea>
                 </li>
                 )}
+
+                { (wybranaAnkieta == "Brak") ? null : <WyslijBtn />}
         </ul>
-        <input type="submit" className="btn btn-dark btn-lg"></input>
         </div>
     );
 }
+const WyslijBtn = () =>(
+    <input type="submit" className="btn btn-dark btn-lg" id="WyslijAnkietyBtn" ></input>
+);
 
 export default Pytania;

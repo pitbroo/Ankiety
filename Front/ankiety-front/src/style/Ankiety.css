@@ -37,3 +37,59 @@ ul{
 .form-select{
     width: 100px;
 }
+.formOdp{
+    width: 50%;
+    padding: .375rem .75rem;
+    color: #000000;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+.formPyt{
+    width: 60%;
+    padding: .375rem .75rem;
+    color: #091d31;
+    background-color: rgb(231, 231, 231);
+    background-clip: padding-box;
+    border: 1px solid #3a3c3f;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-left: auto;
+    margin-right: auto;
+}
+.submitBtn {
+	background-color:#343a3d;
+	border-radius:28px;
+	border:1px solid #000000;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:26px;
+	padding:11px 72px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+    margin: 40px;
+}
+.submitBtn:hover{
+	background-color:#325223;
+}
+.submitBtn:active{
+	position:relative;
+}
+.formKometarz{
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 50px;
+    width: 400px;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

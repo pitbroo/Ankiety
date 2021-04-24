@@ -65,7 +65,7 @@ class Ankiety extends React.Component{
 
                     <select value={this.state.wybranaAnkieta} onChange={this.zmianaWybranejAnkiety}>
 
-                    <option value="Brak wybranej ankiety" selected>Wybierz ankiete</option>
+                    <option selected>Wybierz ankiete</option>
                         {this.state.nazwyAnkiet.map(wybranaAnkieta =>{
                             return(<option value={wybranaAnkieta} key={wybranaAnkieta}>{wybranaAnkieta}</option>)
                         })} 
@@ -74,7 +74,8 @@ class Ankiety extends React.Component{
 
                 </div>
                 
-                <Pytania pytania={this.state.ListaAnkiety} nazwaAnkiety={this.state.nazwaAnkiety} />
+                <Pytania pytania={this.state.ListaAnkiety} nazwaAnkiety={this.state.nazwaAnkiety} wybranaAnkieta={this.state.wybranaAnkieta} />
+                
             
             </div>
         )

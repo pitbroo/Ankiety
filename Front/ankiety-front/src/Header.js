@@ -9,7 +9,7 @@ class Header extends React.Component {
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                     <div class="container">
                         <a class="navbar-brand" href="#">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQky9_US9i2NxXJLO6YO1WVP6W926bGQky5-Q&usqp=CAU" height="40px"
+                            <img target='_blank' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQky9_US9i2NxXJLO6YO1WVP6W926bGQky5-Q&usqp=CAU" height="40px"
                              alt="Vistula University"></img> Vistula University</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@ class Header extends React.Component {
                                     </Link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="https://www.vistula.edu.pl/en">Vistula</a>
+                                    <a class="nav-link" target="blank" href="https://www.vistula.edu.pl/en">Vistula</a>
                                 </li>
                                 <li class="nav-item">
                                     <Link to="/Ankiety">
@@ -53,7 +53,6 @@ class Header extends React.Component {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </header>
             </div>

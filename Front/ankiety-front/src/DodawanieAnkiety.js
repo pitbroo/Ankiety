@@ -1,44 +1,29 @@
 import React from 'react';
-import "./style/Header.css"
+import "./style/Header.css";
+import {useState} from 'react';
+import NowePytanie from './NowePytanie.js';
 
 class DodawanieAnkiety extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            name: '' 
-        };
-      }
-    
-      handleChange = (event) => {
-        this.setState({[event.target.name]: event.target.value});
-      }
-    
-      handleSubmit = (event) => {
-        alert('A form was submitted: ' + this.state);
-    
-        fetch('http://localhost:8080/ankiety/', {
-            method: 'POST',
-            // We convert the React state to JSON and send it as the POST body
-            body: JSON.stringify(this.state)
-          }).then(function(response) {
-            console.log(response)
-            return response.json();
-          });
-    
-        event.preventDefault();
+    state = {
+        liczbaPytan: 0,
+        listaPytan: [] 
     }
-    
-      render() {
+    render() {
+   
         return (
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Ankieta:
-              <input type="text" value={this.state.value} name="nazwaAnkiety" onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-        );
-      }
+            <>
+            <form>
+                <h2>Nazwa ankiety:</h2> 
+                <input type="text"/>
+                <br></br>
+                <br></br>
+                <NowePytanie />
+                <button type="submit" className="submitBtn">Wyślij Ankietę</button>
+            </form> 
+            </>
+        )
+    }
 }
+
 
 export default DodawanieAnkiety;
