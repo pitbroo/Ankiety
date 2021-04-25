@@ -1,6 +1,5 @@
 package com.ankiety.ankiety.model.dto;
 
-import com.ankiety.ankiety.model.TresciOdpowiedzi;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,9 +13,9 @@ public class TresciOdpowiedziDto {
     public TresciOdpowiedziDto() {
     }
 
-    public TresciOdpowiedziDto(TresciOdpowiedzi source) {
+    /*public TresciOdpowiedziDto(TresciOdpowiedzi source) {
         this.idTresciOdpowiedzi = source.getIdTresciOdpowiedzi();
         this.trescOdpowiedzi = source.getTrescOdpowiedzi();
     }
-
+*/
 }

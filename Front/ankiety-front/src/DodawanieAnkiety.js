@@ -4,10 +4,13 @@ import {useState} from 'react';
 import NowePytanie from './NowePytanie.js';
 
 class DodawanieAnkiety extends React.Component {
+    
     state = {
         liczbaPytan: 0,
-        listaPytan: [] 
+        listaPytan: []
     }
+    
+    
     render() {
    
         return (
@@ -18,7 +21,10 @@ class DodawanieAnkiety extends React.Component {
                 <br></br>
                 <br></br>
                 <NowePytanie />
-                <button type="submit" className="submitBtn">Wyślij Ankietę</button>
+                <div>
+                    <input type="text" name="IPv4" placeholder="IPv4" id="IPv4"/>
+                </div>
+                <button type="submit" className="submitBtn" id="button">Wyślij Ankietę</button>
             </form> 
             </>
         )

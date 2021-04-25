@@ -24,14 +24,14 @@ public class AnkietyController {
         return ankietyService.getAnkiety();
     }
 
-    @GetMapping("/{ankieta}")
+    @GetMapping("/pytania/{ankieta}")
     public List<String> getAnkietaPytania(@PathVariable String ankieta){
         return ankietyService.getAnkietaPytania(ankieta);
     }
 
-    @GetMapping("/odpowiedzi/{ankieta}")
-    public List<AnkietyDto> getAnkietyPytaniaOdpowiedzi(@PathVariable String ankieta){
-        return ankietyService.getAnkietyPytaniaOdpowiedzi(ankieta);
+   @GetMapping("/{ankieta}")
+    public List<AnkietyDto> getAnkietyByNazwa(@PathVariable String ankieta){
+        return ankietyService.getAnkietyByNazwa(ankieta);
     }
 
     @PostMapping

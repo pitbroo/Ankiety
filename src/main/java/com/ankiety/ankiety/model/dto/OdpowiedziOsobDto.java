@@ -14,11 +14,14 @@ public class OdpowiedziOsobDto {
     private TresciOdpowiedzi tresciOdpowiedzi;
     private Komentarze komentarze;
 
-    public OdpowiedziOsobDto(OdpowiedziOsob source) {
+    public OdpowiedziOsobDto() {
+    }
+
+    /*public OdpowiedziOsobDto(OdpowiedziOsob source) {
         this.idOdpowiedzi = source.getIdOdpowiedzi();
         this.osoby = source.getOsoby();
         this.ankiety = source.getAnkiety();
         this.tresciOdpowiedzi = source.getTresciOdpowiedzi();
         this.komentarze = source.getKomentarze();
-    }
+    }*/
 }

@@ -1,11 +1,12 @@
 package com.ankiety.ankiety.service;
 
 import com.ankiety.ankiety.model.dto.OdpowiedziOsobDto;
+import com.ankiety.ankiety.model.dto.mapper.OdpowiedziOsobDtoMapper;
 import com.ankiety.ankiety.repository.OdpowiedziOsobRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class OdpowiedziOsobServiceImpl implements OdpowiedziOsobService {
@@ -18,9 +19,11 @@ public class OdpowiedziOsobServiceImpl implements OdpowiedziOsobService {
 
     @Override
     public List<OdpowiedziOsobDto> getOdpowiedziOsob() {
-        return odpowiedziOsobRepository.findAll()
-                .stream()
-                .map(OdpowiedziOsobDto::new)
-                .collect(Collectors.toList());
+        List<OdpowiedziOsobDto> odpowiedziOsobDtoList = new ArrayList<>();
+        odpowiedziOsobRepository.findAll()
+                .forEach(odpowiedziOsob -> {
+                    odpowiedziOsobDtoList.add(OdpowiedziOsobDtoMapper.INSTANCE.odpowiedziOsobToOdpowiedziOsobDto(odpowiedziOsob));
+                });
+        return odpowiedziOsobDtoList;
     }
 }

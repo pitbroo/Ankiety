@@ -2,11 +2,12 @@ package com.ankiety.ankiety.service;
 
 import com.ankiety.ankiety.model.TresciOdpowiedzi;
 import com.ankiety.ankiety.model.dto.TresciOdpowiedziDto;
+import com.ankiety.ankiety.model.dto.mapper.TresciOdpowiedziDtoMapper;
 import com.ankiety.ankiety.repository.TresciOdpowiedziRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class TresciOdpowiedziServiceImpl implements TresciOdpowiedziService {
@@ -19,10 +20,12 @@ public class TresciOdpowiedziServiceImpl implements TresciOdpowiedziService {
 
     @Override
     public List<TresciOdpowiedziDto> getTresciOdpowiedzi() {
-        return tresciOdpowiedziRepository.findAll()
-                .stream()
-                .map(TresciOdpowiedziDto::new)
-                .collect(Collectors.toList());
+        List<TresciOdpowiedziDto> tresciOdpowiedziDtoList = new ArrayList<>();
+        tresciOdpowiedziRepository.findAll()
+                .forEach(tresciOdpowiedzi -> {
+                    tresciOdpowiedziDtoList.add(TresciOdpowiedziDtoMapper.INSTACNE.TresciOdpowiedziToTresciOdpowiedziDto(tresciOdpowiedzi));
+                });
+        return tresciOdpowiedziDtoList;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.ankiety.ankiety.model.dto;
 
-import com.ankiety.ankiety.model.Osoby;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +13,8 @@ public class OsobyDto {
     public OsobyDto() {
     }
 
-    public OsobyDto(Osoby source) {
+    /*public OsobyDto(Osoby source) {
         this.idOsoby = source.getIdOsoby();
         this.IPv4 = source.getIPv4();
-    }
+    }*/
 }

@@ -3,10 +3,12 @@ package com.ankiety.ankiety.service;
 import com.ankiety.ankiety.model.Ankiety;
 import com.ankiety.ankiety.model.TresciOdpowiedzi;
 import com.ankiety.ankiety.model.dto.AnkietyDto;
+import com.ankiety.ankiety.model.dto.mapper.AnkietyMapper;
 import com.ankiety.ankiety.repository.AnkietyRepository;
 import com.ankiety.ankiety.repository.TresciOdpowiedziRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -22,28 +24,38 @@ public class AnkietyServiceImpl implements AnkietyService {
         this.tresciOdpowiedziRepository = tresciOdpowiedziRepository;
     }
 
-    @Override
+    /*@Override
     public List<AnkietyDto> getAnkiety() {
        return ankietyRepository.findAll()
                 .stream()
                 .map(AnkietyDto::new)
                 .collect(Collectors.toList());
+    }*/
+    @Override
+    public List<AnkietyDto> getAnkiety(){
+        List<AnkietyDto> ankietyDtoList = new ArrayList<>();
+        ankietyRepository.findAll()
+               .forEach(ankieta -> {
+                   ankietyDtoList.add(AnkietyMapper.INSTANCE.ankietyToAnkietyDto(ankieta));
+               });
+        return ankietyDtoList;
     }
 
     @Override
     public List<String> getAnkietaPytania(String nazwaAnkiety) {
-
         return ankietyRepository.findAllByNazwaAnkiety(nazwaAnkiety)
                 .stream()
                 .map(Ankiety::getPytanie)
                 .collect(Collectors.toList());
     }
     @Override
-    public List<AnkietyDto> getAnkietyPytaniaOdpowiedzi(String nazwaAnkiety) {
-        return ankietyRepository.findAllByNazwaAnkiety(nazwaAnkiety)
-                .stream()
-                .map(AnkietyDto::new)
-                .collect(Collectors.toList());
+    public List<AnkietyDto> getAnkietyByNazwa(String nazwaAnkiety) {
+        List<AnkietyDto> ankietyDtoList = new ArrayList<>();
+        ankietyRepository.findAllByNazwaAnkiety(nazwaAnkiety)
+                .forEach(ankieta ->{
+                    ankietyDtoList.add(AnkietyMapper.INSTANCE.ankietyToAnkietyDto(ankieta));
+                });
+        return ankietyDtoList;
     }
 
     @Override

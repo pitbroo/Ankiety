@@ -1,11 +1,11 @@
 package com.ankiety.ankiety.controller;
 
 import com.ankiety.ankiety.model.Komentarze;
+import com.ankiety.ankiety.model.dto.KomentarzeDto;
 import com.ankiety.ankiety.service.KomentarzeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,7 +19,12 @@ public class KomentarzeController {
     }
 
     @GetMapping
-    public List<Komentarze> getKomentarze(){
+    public List<KomentarzeDto> getKomentarze(){
         return komentarzeService.getKomentarze();
+    }
+
+    @PostMapping
+    public Komentarze addKomentarz(@RequestBody @Valid KomentarzeDto komentarzeDto){
+        return komentarzeService.addKomentarz(komentarzeDto);
     }
 }
