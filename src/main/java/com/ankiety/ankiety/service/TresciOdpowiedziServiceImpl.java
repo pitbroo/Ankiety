@@ -2,7 +2,7 @@ package com.ankiety.ankiety.service;
 
 import com.ankiety.ankiety.model.TresciOdpowiedzi;
 import com.ankiety.ankiety.model.dto.TresciOdpowiedziDto;
-import com.ankiety.ankiety.model.dto.mapper.TresciOdpowiedziDtoMapper;
+import com.ankiety.ankiety.model.dto.mapper.TresciOdpowiedziMapper;
 import com.ankiety.ankiety.repository.TresciOdpowiedziRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ public class TresciOdpowiedziServiceImpl implements TresciOdpowiedziService {
         List<TresciOdpowiedziDto> tresciOdpowiedziDtoList = new ArrayList<>();
         tresciOdpowiedziRepository.findAll()
                 .forEach(tresciOdpowiedzi -> {
-                    tresciOdpowiedziDtoList.add(TresciOdpowiedziDtoMapper.INSTACNE.TresciOdpowiedziToTresciOdpowiedziDto(tresciOdpowiedzi));
+                    tresciOdpowiedziDtoList.add(TresciOdpowiedziMapper.INSTACNE.TresciOdpowiedziToTresciOdpowiedziDto(tresciOdpowiedzi));
                 });
         return tresciOdpowiedziDtoList;
     }

@@ -1,13 +1,11 @@
 package com.ankiety.ankiety.model;
 
-import com.ankiety.ankiety.model.dto.AnkietyDto;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -23,7 +21,7 @@ public class Ankiety {
     public Ankiety() {
     }
 
-    public Ankiety(AnkietyDto source) {
+    /*public Ankiety(AnkietyDto source) {
         this.idPytania = source.getIdPytania();
         this.nazwaAnkiety = source.getNazwaAnkiety();
         this.pytanie = source.getPytanie();
@@ -35,7 +33,7 @@ public class Ankiety {
                                 tresciOdpowiedzi.getTrescOdpowiedzi()))
                 .collect(Collectors.toList());
         //this.odpowiedziOsob = source.getOdpowiedziOsobs();
-    }
+    }*/
 
     //@JsonIgnoreProperties("ankiety")
     @ManyToMany(cascade = CascadeType.ALL)

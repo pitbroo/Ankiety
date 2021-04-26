@@ -7,8 +7,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface TresciOdpowiedziDtoMapper {
-    TresciOdpowiedziDtoMapper INSTACNE = Mappers.getMapper(TresciOdpowiedziDtoMapper.class);
+public interface TresciOdpowiedziMapper {
+    TresciOdpowiedziMapper INSTACNE = Mappers.getMapper(TresciOdpowiedziMapper.class);
 
     @Mapping(source = "idTresciOdpowiedzi", target = "idTresciOdpowiedzi")
     @Mapping(source = "trescOdpowiedzi", target = "trescOdpowiedzi")
