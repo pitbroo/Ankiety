@@ -1,0 +1,25 @@
+.buttonBox{
+    margin: 20px;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(248, 248, 248);
+    padding: 3px;
+    text-decoration: none;
+    font-family:Arial;
+	font-size:27px;
+    border-radius:15px;
+	border:1px solid #064d0e;
+    -webkit-box-shadow: 2px 2px 16px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 2px 2px 16px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 2px 2px 16px 0px rgba(50, 50, 50, 0.75);
+}
+.buttonBox:hover{
+	background-color:#5cbf2a;
+}
+.box{
+    border:1px solid #064d0e;
+    -webkit-box-shadow: 2px 2px 16px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 2px 2px 16px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 2px 2px 16px 0px rgba(50, 50, 50, 0.75);
+    border-radius:15px;
+}

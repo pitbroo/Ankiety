@@ -42,7 +42,7 @@ const Odpowiedzi = props =>(
     {props.odpowiedzi}
     </div>
     <a type="button" className="btn btn-light" onClick={props.dodanieodpowiedzi}>Dodaj Odpowiedź</a>
-    <a type="button" className="btn " onClick={props.usunOdpowiedzi}>Usuń odpowiedź</a> 
+    <a type="button" className="btn btn-light" onClick={props.usunOdpowiedzi}>Usuń odpowiedź</a> 
   </div>
 );
 const Odpowiedz = props => 

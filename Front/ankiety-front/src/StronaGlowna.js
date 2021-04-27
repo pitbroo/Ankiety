@@ -1,17 +1,37 @@
 import React from 'react';
 import "./style/Header.css"
+import "./style/StronaGlowna.css"
+import flashCard from "./img/flash-card.png"
+import test from"./img/test.png"
+import { Link } from 'react-router-dom';
 
 class StronaGlowna extends React.Component {
     render() {
         return (
             <div>
-                <h1>Witamy na naszej stronie z darmowymi ankietami</h1>
-                <img src="https://super-monitoring.com/blogpl/wp-content/uploads/2020/12/social-polls.png" width="800"></img>
-                <h3>Tutaj możesz dodawać ankiety zupełnie za darmo oraz wypełniać istniejące ankiety.</h3>
-                <div className="AnkietyWiki">
-                    <h3>Czym jest ankietowanie</h3>
-                    Jedna z metod badań społecznych, w której do zbierania informacji od respondentów wykorzystuje się wystandaryzowany kwestionariusz. Dla ustalenia badanej populacji konsumentów stosuje się dobór losowy, gdy niewielka jest ich liczba i nieznana ich struktura, dobór losowy systematyczny, gdy dostępna jest lista całej populacji oraz dobór losowy warstwowy dla uzyskania bardziej dokładnych wyników charakteryzujących badanych.W socjologii polega na rozdawaniu respondentom kwestionariuszy z pytaniami, z prośbą o ich wypełnienie. Wyróżnia się różne techniki ankietowe, m.in. są to ankieta pocztowa, ankieta audytoryjna. Mniej precyzyjne, często używane przez osoby nie prowadzące badań, są ankiety prasowe. Ankieta w odróżnieniu od kwestionariusza jest anonimowa i zawiera m.in. pytania otwarte.
+                <br></br><br></br>
+                <h2>Witamy na naszej stronie z darmowymi ankietami</h2>
+                <h4>Tutaj możesz dodawać ankiety zupełnie za darmo oraz wypełniać istniejące ankiety.</h4>
+                <br></br>
+                
+                <img className="box" src="https://super-monitoring.com/blogpl/wp-content/uploads/2020/12/social-polls.png" height="230px"></img>
+                <br></br><br></br>
+                <div>
+                    <Link to="/DodajAnkiete">
+                        <button type="button" className="buttonBox">
+                            <img src={test} height="50px"></img><br></br>
+                        Dodaj nową ankietę
+                    </button>
+                    </Link>
+                    <Link to="/Ankiety">
+                        <button type="button" className="buttonBox">
+                            <img src={flashCard} height="50px"></img><br></br>
+                        przeglądaj ankiety
+                    </button>
+                    </Link>
                 </div>
+                <br></br><br></br>
+
             </div>
         )
     }

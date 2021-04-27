@@ -36,6 +36,11 @@ class Header extends React.Component {
                                     <a class="nav-link">Dodaj Ankietę</a>
                                     </Link>
                                 </li>
+                                <li class="nav-item">
+                                    <Link to="/Demo">
+                                    <a class="nav-link">Demo</a>
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>
