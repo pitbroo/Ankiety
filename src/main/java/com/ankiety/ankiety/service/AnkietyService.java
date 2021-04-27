@@ -12,4 +12,5 @@ public interface AnkietyService {
     List<String> getAnkietaPytania(String nazwaAnkiety);
     List<AnkietyDto> getAnkietyByNazwa(String nazwaAnkiety);
     List<String> getAnkietyNazwa();
+
 }

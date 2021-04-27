@@ -6,6 +6,8 @@ import com.ankiety.ankiety.model.dto.AnkietyDto;
 import com.ankiety.ankiety.model.dto.mapper.AnkietyMapper;
 import com.ankiety.ankiety.repository.AnkietyRepository;
 import com.ankiety.ankiety.repository.TresciOdpowiedziRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,6 +20,8 @@ public class AnkietyServiceImpl implements AnkietyService {
 
     private final AnkietyRepository ankietyRepository;
     private final TresciOdpowiedziRepository tresciOdpowiedziRepository;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public AnkietyServiceImpl(AnkietyRepository ankietyRepository, TresciOdpowiedziRepository tresciOdpowiedziRepository) {
         this.ankietyRepository = ankietyRepository;
@@ -68,7 +72,7 @@ public class AnkietyServiceImpl implements AnkietyService {
                     Optional<TresciOdpowiedzi> tresciOdpowiedziOptional = tresciOdpowiedziRepository.findByTrescOdpowiedzi(trescOdpowiedzi.getTrescOdpowiedzi());
             if(tresciOdpowiedziOptional.isPresent()){
                 TresciOdpowiedzi odpowiedz = tresciOdpowiedziOptional.get();
-                System.out.println("Odpowiedz '" + odpowiedz + "' juz jest w bazie danych.");
+                logger.info("Odpowiedz '" + odpowiedz.getTrescOdpowiedzi() + "' juz jest w bazie danych.");
                 ankiety.getTresciOdpowiedzi().add(odpowiedz);
             }else{
                 TresciOdpowiedzi nowaOdpowiedz = new TresciOdpowiedzi(trescOdpowiedzi.getTrescOdpowiedzi());
@@ -84,4 +88,5 @@ public class AnkietyServiceImpl implements AnkietyService {
     public List<String> getAnkietyNazwa() {
         return ankietyRepository.findDistinctByNazwaAnkiety();
     }
+
 }

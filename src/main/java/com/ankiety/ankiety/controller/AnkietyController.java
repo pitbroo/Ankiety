@@ -43,5 +43,4 @@ public class AnkietyController {
     public Ankiety addAnkieta(@RequestBody @Valid AnkietyDto ankiety){
         return ankietyService.addAnkiety(ankiety);
     }
-
 }
