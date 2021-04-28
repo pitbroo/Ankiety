@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +11,10 @@ import java.util.List;
 @Getter
 public class AnkietyDto {
 
-    @NotNull
     private int idPytania;
-    @NotBlank
+    @NotBlank(message = "Błąd nazwy ankiety")
     private String nazwaAnkiety;
-    @NotBlank
+    @NotBlank(message = "Błąd pytania")
     private String pytanie;
     private List<TresciOdpowiedziDto> tresciOdpowiedzi = new ArrayList<>();
     //private List<OdpowiedziOsob> odpowiedziOsobs = new ArrayList<>();

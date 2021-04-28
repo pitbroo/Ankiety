@@ -5,13 +5,15 @@ import "./style/Ankiety.css"
 
 class Demo extends Component {
 
+    
+
     state = {
         wpisanaOdpowiedz: null,
         wpisanaNazwaPytania: null,
         nazwaAnkiety: "",
         pytanie: "",
         tresciOdpowiedzi: [{
-            trescOdpowiedzi
+            trescOdpowiedzi: ""
         }],
         nazwaAnkietyDisabled: false
     }

@@ -30,7 +30,7 @@ class Ankiety extends React.Component{
         }))
     }
     getAnkiety = () =>{
-        fetch('http://localhost:8080/ankiety/odpowiedzi/'+this.state.wybranaAnkieta)
+        fetch('http://localhost:8080/ankiety/'+this.state.wybranaAnkieta)
         .then(response => response.json())
         .then((dane) => this.setState({
             ListaAnkiety: dane

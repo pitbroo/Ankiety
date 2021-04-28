@@ -1,17 +1,19 @@
 package com.ankiety.ankiety.model.dto;
 
-import com.ankiety.ankiety.model.*;
+import com.ankiety.ankiety.model.Ankiety;
+import com.ankiety.ankiety.model.Komentarze;
+import com.ankiety.ankiety.model.Osoby;
+import com.ankiety.ankiety.model.TresciOdpowiedzi;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Null;
 
 @Getter
 @Setter
 public class OdpowiedziOsobDto {
 
-    @Null
+
     private int idOdpowiedzi;
     @NotBlank
     private Osoby osoby;
