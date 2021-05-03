@@ -64,7 +64,6 @@ public class AnkietyServiceImpl implements AnkietyService {
 
     @Override
     public Ankiety addAnkiety(AnkietyDto ankietyDto) {
-        //Ankiety ankiety = new Ankiety(ankietyDto);
         Ankiety ankiety = AnkietyMapper.INSTANCE.ankietyDtoToAnkiety(ankietyDto);
         ankiety.getTresciOdpowiedzi().clear();
 

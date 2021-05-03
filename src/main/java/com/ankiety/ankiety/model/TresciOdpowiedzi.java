@@ -22,11 +22,6 @@ public class TresciOdpowiedzi {
 
     }
 
-    public TresciOdpowiedzi(int idTresciOdpowiedzi, String trescOdpowiedzi) {
-        this.idTresciOdpowiedzi = idTresciOdpowiedzi;
-        this.trescOdpowiedzi = trescOdpowiedzi;
-    }
-
     public TresciOdpowiedzi(String trescOdpowiedzi) {
         this.trescOdpowiedzi = trescOdpowiedzi;
     }

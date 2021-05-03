@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface KomentarzeRepository extends JpaRepository<Komentarze, Integer> {
 
     Komentarze findByIdKomentarza(int id);
+
 }

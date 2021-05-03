@@ -30,14 +30,4 @@ public class OdpowiedziOsob {
     public OdpowiedziOsob() {
     }
 
-    @Override
-    public String toString() {
-        return "OdpowiedziOsob{" +
-                "idOdpowiedzi=" + idOdpowiedzi +
-                ", osoby=" + osoby +
-                ", ankiety=" + ankiety +
-                ", tresciOdpowiedzi=" + tresciOdpowiedzi +
-                ", komentarze=" + komentarze +
-                '}';
-    }
 }

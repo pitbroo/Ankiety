@@ -11,9 +11,9 @@ import java.util.List;
 public interface AnkietyRepository extends JpaRepository<Ankiety, Integer> {
 
     List<Ankiety> findAllByNazwaAnkiety(String nazwaAnkiety);
+
     @Query("SELECT DISTINCT nazwaAnkiety FROM Ankiety")
     List<String> findDistinctByNazwaAnkiety();
 
-    Ankiety findByIdPytania(int id);
     Ankiety findByNazwaAnkietyAndPytanie(String nazwaAnkiety, String pytanie);
 }
