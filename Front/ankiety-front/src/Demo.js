@@ -10,10 +10,10 @@ class Demo extends Component {
     state = {
         wpisanaOdpowiedz: null,
         wpisanaNazwaPytania: null,
-        nazwaAnkiety: "",
-        pytanie: "",
+        nazwaAnkiety: null,
+        pytanie: null,
         tresciOdpowiedzi: [{
-            trescOdpowiedzi: ""
+            trescOdpowiedzi: null
         }],
         nazwaAnkietyDisabled: false
     }
@@ -70,6 +70,7 @@ class Demo extends Component {
             tresciOdpowiedzi,
         }
         console.log(ankieta)
+        console.log(tresciOdpowiedzi.in)
     }
 
     wyslijAnkiete = () => {
@@ -79,11 +80,13 @@ class Demo extends Component {
         const nazwaAnkiety = this.state.nazwaAnkiety;
         const pytanie = this.state.pytanie;
         const tresciOdpowiedzi = this.state.tresciOdpowiedzi;
+        
         const ankieta = {
             nazwaAnkiety,
             pytanie,
             tresciOdpowiedzi
         }
+        console.log(ankieta)
         fetch('http://localhost:8080/ankiety', {
             method: 'POST',
             headers : {

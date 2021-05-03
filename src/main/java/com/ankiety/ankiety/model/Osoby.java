@@ -21,4 +21,7 @@ public class Osoby {
     private String IPv4;
     /*@OneToMany(mappedBy = "osoby")
     private List<OdpowiedziOsob> odpowiedziOsob;*/
+
+    public Osoby() {
+    }
 }

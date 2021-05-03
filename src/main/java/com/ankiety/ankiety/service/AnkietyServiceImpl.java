@@ -80,6 +80,11 @@ public class AnkietyServiceImpl implements AnkietyService {
             }
         }
         );
+        //sprawdzenie w ankiecie o podanej nazwie już istnieje takie pytanie
+        List<String> ankietaPytaniaList = new ArrayList<>(getAnkietaPytania(ankietyDto.getNazwaAnkiety()));
+        if(ankietaPytaniaList.stream().anyMatch(pytanie -> ankietyDto.getPytanie().equals(pytanie))){
+            throw new IllegalArgumentException("W ankiecie '" + ankietyDto.getNazwaAnkiety() + "' już jest pytanie: '" + ankietyDto.getPytanie() + "'");
+        }
 
         return ankietyRepository.save(ankiety);
     }

@@ -16,9 +16,4 @@ public class OsobyDto {
 
     public OsobyDto() {
     }
-
-    /*public OsobyDto(Osoby source) {
-        this.idOsoby = source.getIdOsoby();
-        this.IPv4 = source.getIPv4();
-    }*/
 }

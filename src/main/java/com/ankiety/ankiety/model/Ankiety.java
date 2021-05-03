@@ -35,17 +35,9 @@ public class Ankiety {
         //this.odpowiedziOsob = source.getOdpowiedziOsobs();
     }*/
 
-    //@JsonIgnoreProperties("ankiety")
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "odpowiedzi",
         joinColumns = {@JoinColumn(name = "id_pytania")},
         inverseJoinColumns = {@JoinColumn(name = "id_tresci_odpowiedzi") })
     private List<TresciOdpowiedzi> tresciOdpowiedzi = new ArrayList<>();
-
-
-    /*//@JsonIgnoreProperties("ankiety")
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ankiety")
-    private List<OdpowiedziOsob> odpowiedziOsob = new ArrayList<>();*/
-
-
 }

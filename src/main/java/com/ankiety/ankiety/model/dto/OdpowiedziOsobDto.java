@@ -1,13 +1,7 @@
 package com.ankiety.ankiety.model.dto;
 
-import com.ankiety.ankiety.model.Ankiety;
-import com.ankiety.ankiety.model.Komentarze;
-import com.ankiety.ankiety.model.Osoby;
-import com.ankiety.ankiety.model.TresciOdpowiedzi;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
@@ -15,14 +9,14 @@ public class OdpowiedziOsobDto {
 
 
     private int idOdpowiedzi;
-    @NotBlank
-    private Osoby osoby;
-    @NotBlank
-    private Ankiety ankiety;
-    @NotBlank
-    private TresciOdpowiedzi tresciOdpowiedzi;
-    @NotBlank
-    private Komentarze komentarze;
+    //@NotBlank
+    private OsobyDto osoby;
+    //@NotBlank
+    private AnkietyDto ankiety;
+    //@NotBlank
+    private TresciOdpowiedziDto tresciOdpowiedzi;
+    //@NotBlank
+    private KomentarzeDto komentarze;
 
     public OdpowiedziOsobDto() {
     }
@@ -34,4 +28,15 @@ public class OdpowiedziOsobDto {
         this.tresciOdpowiedzi = source.getTresciOdpowiedzi();
         this.komentarze = source.getKomentarze();
     }*/
+
+    @Override
+    public String toString() {
+        return "OdpowiedziOsobDto{" +
+                "idOdpowiedzi=" + idOdpowiedzi +
+                ", osoby=" + osoby +
+                ", ankiety=" + ankiety +
+                ", tresciOdpowiedzi=" + tresciOdpowiedzi +
+                ", komentarze=" + komentarze +
+                '}';
+    }
 }

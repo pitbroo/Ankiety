@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OsobyRepository extends JpaRepository<Osoby, Integer> {
 
+    Osoby findByIdOsoby(int id);
+    Osoby findByIPv4(String ipv4);
 }

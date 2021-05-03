@@ -15,7 +15,9 @@ public class Komentarze {
     private int idKomentarza;
     private String trescKomentarza;
 
-   /* @OneToOne(cascade = CascadeType.ALL, mappedBy = "komentarze")
+    public Komentarze() {
+    }
+    /* @OneToOne(cascade = CascadeType.ALL, mappedBy = "komentarze")
     //@MapsId
     //@JoinColumn(name = "id_komentarza")
     private OdpowiedziOsob odpowiedziOsob;*/

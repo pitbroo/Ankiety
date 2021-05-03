@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface KomentarzeRepository extends JpaRepository<Komentarze, Integer> {
+
+    Komentarze findByIdKomentarza(int id);
 }

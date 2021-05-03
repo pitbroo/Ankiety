@@ -22,9 +22,22 @@ public class OdpowiedziOsob {
     @ManyToOne
     @JoinColumn(name = "id_tresci_odpowiedzi")
     private TresciOdpowiedzi tresciOdpowiedzi;
-    @OneToOne//(mappedBy = "odpowiedziOsob")
-    //@PrimaryKeyJoinColumn
+    @OneToOne
     @MapsId
     @JoinColumn(name = "id_komentarza")
     private Komentarze komentarze;
+
+    public OdpowiedziOsob() {
+    }
+
+    @Override
+    public String toString() {
+        return "OdpowiedziOsob{" +
+                "idOdpowiedzi=" + idOdpowiedzi +
+                ", osoby=" + osoby +
+                ", ankiety=" + ankiety +
+                ", tresciOdpowiedzi=" + tresciOdpowiedzi +
+                ", komentarze=" + komentarze +
+                '}';
+    }
 }

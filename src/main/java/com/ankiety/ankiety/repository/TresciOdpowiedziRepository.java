@@ -11,5 +11,6 @@ public interface TresciOdpowiedziRepository extends JpaRepository<TresciOdpowied
     boolean existsByTrescOdpowiedzi(String trescOdpowiedzi);
     Optional<TresciOdpowiedzi> findByTrescOdpowiedzi(String trescOdpowiedzi);
 
+    TresciOdpowiedzi findByIdTresciOdpowiedzi(int id);
 
 }
