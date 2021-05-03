@@ -7,9 +7,7 @@ import lombok.Setter;
 @Setter
 public class KomentarzeDto {
 
-    //@NotNull
     private int idKomentarza;
-    //@NotBlank
     private String trescKomentarza;
 
     public KomentarzeDto() {

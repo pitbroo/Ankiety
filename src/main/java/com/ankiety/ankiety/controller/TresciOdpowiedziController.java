@@ -14,7 +14,6 @@ public class TresciOdpowiedziController {
 
     private final TresciOdpowiedziService tresciOdpowiedziService;
 
-
     public TresciOdpowiedziController(TresciOdpowiedziService tresciOdpowiedziService) {
         this.tresciOdpowiedziService = tresciOdpowiedziService;
     }
@@ -24,6 +23,7 @@ public class TresciOdpowiedziController {
         return tresciOdpowiedziService.getTresciOdpowiedzi();
     }
 
+    //do przerobienia na DTO
     @PostMapping
     public TresciOdpowiedzi addTrescOdpowiedzi(@RequestBody @Valid TresciOdpowiedzi trescOdpowiedzi){
         return tresciOdpowiedziService.addTrescOdpowiedzi(trescOdpowiedzi);
