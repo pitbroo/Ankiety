@@ -1,6 +1,6 @@
 import React from 'react';
 import "./style/Header.css";
-import {useState} from 'react';
+
 import NowePytanie from './NowePytanie.js';
 
 

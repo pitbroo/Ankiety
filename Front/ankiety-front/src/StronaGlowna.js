@@ -13,19 +13,20 @@ class StronaGlowna extends React.Component {
                 <h2>Witamy na naszej stronie z darmowymi ankietami</h2>
                 <h4>Tutaj możesz dodawać ankiety zupełnie za darmo oraz wypełniać istniejące ankiety.</h4>
                 <br></br>
-                
-                <img className="box" src="https://super-monitoring.com/blogpl/wp-content/uploads/2020/12/social-polls.png" height="230px"></img>
+
+                    <img className="box" src="https://super-monitoring.com/blogpl/wp-content/uploads/2020/12/social-polls.png" height="230px" alt="Ankiety obrazek"></img>
+
                 <br></br><br></br>
                 <div>
-                    <Link to="/DodajAnkiete">
+                    <Link to="/NowaAnkieta">
                         <button type="button" className="buttonBox">
-                            <img src={test} height="50px"></img><br></br>
+                            <img src={test} height="50px" alt="Dodaj nową ankietę"></img><br></br>
                         Dodaj nową ankietę
                     </button>
                     </Link>
                     <Link to="/Ankiety">
                         <button type="button" className="buttonBox">
-                            <img src={flashCard} height="50px"></img><br></br>
+                            <img src={flashCard} height="50px" alt="przeglądaj ankiety"></img><br></br>
                         przeglądaj ankiety
                     </button>
                     </Link>

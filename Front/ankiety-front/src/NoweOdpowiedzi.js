@@ -6,7 +6,7 @@ import "./style/Ankiety.css"
 class NoweOdpowiedzi extends React.Component {
     state = {
       liczbaOdpowiedzi: 0,
-      trescOdpowiedzi: null
+      trescOdpowiedzi: ""
       
     }
       render() {

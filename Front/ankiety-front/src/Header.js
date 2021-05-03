@@ -1,44 +1,39 @@
 import React from 'react';
 import "./style/Header.css";
-import {BrowserRouter as Router, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 
 class Header extends React.Component {
     render() {
         return (
             <div>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                    <div class="container">
-                        <a class="navbar-brand" href="#">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                    <div className="container">
+                        <a className="navbar-brand" href="#">
                             <img target='_blank' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQky9_US9i2NxXJLO6YO1WVP6W926bGQky5-Q&usqp=CAU" height="40px"
                              alt="Vistula University"></img> Vistula University</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div class="collapse navbar-collapse" id="navbarResponsive">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item active">
+                        <div className="collapse navbar-collapse" id="navbarResponsive">
+                            <ul className="navbar-nav ml-auto">
+                                <li className="nav-item active">
                                     <Link to="/">
-                                    <a class="nav-link" >Strona Głowna
-                                    <span class="sr-only">(current)</span>
+                                    <a type="button" className="nav-link" >Strona Głowna
+                                    <span className="sr-only">(current)</span>
                                     </a>
                                     </Link>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" target="blank" href="https://www.vistula.edu.pl/en">Vistula</a>
+                                <li className="nav-item">
+                                    <a className="nav-link" target="blank" href="https://www.vistula.edu.pl/en">Vistula</a>
                                 </li>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <Link to="/Ankiety">
-                                    <a class="nav-link" href="/Ankiety">Ankiety</a>
+                                    <a className="nav-link" href="/Ankiety">Ankiety</a>
                                     </Link>
                                 </li>
-                                <li class="nav-item">
-                                    <Link to="/DodajAnkiete">
-                                    <a class="nav-link">Dodaj Ankietę</a>
-                                    </Link>
-                                </li>
-                                <li class="nav-item">
-                                    <Link to="/Demo">
-                                    <a class="nav-link">Demo</a>
+                                <li className="nav-item">
+                                    <Link to="/NowaAnkieta">
+                                    <a className="nav-link">NowaAnkieta</a>
                                     </Link>
                                 </li>
                             </ul>
