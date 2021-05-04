@@ -29,11 +29,11 @@ public class TresciOdpowiedziServiceImpl implements TresciOdpowiedziService {
     }
 
     @Override
-    public TresciOdpowiedzi addTrescOdpowiedzi(TresciOdpowiedzi trescOdpowiedzi) {
+    public TresciOdpowiedzi addTrescOdpowiedzi(TresciOdpowiedziDto trescOdpowiedzi) {
 
         if(tresciOdpowiedziRepository.existsByTrescOdpowiedzi(trescOdpowiedzi.getTrescOdpowiedzi())){
             throw new IllegalStateException("Odpowiedz '" + trescOdpowiedzi.getTrescOdpowiedzi() + "' juz jest w bazie danych.");
         }
-            return tresciOdpowiedziRepository.save(trescOdpowiedzi);
+            return tresciOdpowiedziRepository.save(TresciOdpowiedziMapper.INSTACNE.TresciOdpowiedziDtoToTresciOdpowiedzi(trescOdpowiedzi));
     }
 }
