@@ -8,5 +8,5 @@ import java.util.List;
 public interface TresciOdpowiedziService {
     List<TresciOdpowiedziDto> getTresciOdpowiedzi();
 
-    TresciOdpowiedzi addTrescOdpowiedzi(TresciOdpowiedzi trescOdpowiedzi);
+    TresciOdpowiedzi addTrescOdpowiedzi(TresciOdpowiedziDto trescOdpowiedzi);
 }
