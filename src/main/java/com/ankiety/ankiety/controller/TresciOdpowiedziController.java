@@ -23,7 +23,6 @@ public class TresciOdpowiedziController {
         return tresciOdpowiedziService.getTresciOdpowiedzi();
     }
 
-    //do przerobienia na DTO
     @PostMapping
     public TresciOdpowiedzi addTrescOdpowiedzi(@RequestBody @Valid TresciOdpowiedziDto trescOdpowiedziDto){
         return tresciOdpowiedziService.addTrescOdpowiedzi(trescOdpowiedziDto);
