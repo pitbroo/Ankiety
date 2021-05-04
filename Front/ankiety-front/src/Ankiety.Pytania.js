@@ -1,8 +1,6 @@
-import { exportDefaultDeclaration } from '@babel/types';
+
 import React from 'react';
 import "./style/Ankiety.css"
-import Button from 'react-bootstrap/Button';
-import Ankiety from './Ankiety';
 
 const Pytania = ({pytania, nazwaAnkiety, wybranaAnkieta}) => {
 
@@ -31,7 +29,7 @@ const Pytania = ({pytania, nazwaAnkiety, wybranaAnkieta}) => {
                 </li>
                 )}
 
-                { (wybranaAnkieta == "Brak") ? null : <WyslijBtn />}
+                { (wybranaAnkieta === "Brak") ? null : <WyslijBtn />}
         </ul>
         </div>
     );

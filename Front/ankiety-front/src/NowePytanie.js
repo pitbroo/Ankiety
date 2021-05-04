@@ -1,5 +1,4 @@
 import React from "react";
-import DodawanieAnkiety from "./DodawanieAnkiety.js";
 import NoweOdpowiedzi from './NoweOdpowiedzi.js'
 
 

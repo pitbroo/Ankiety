@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 import "./style/Ankiety.css"
 
- const trescOdpowiedzi = null;
+ const trescOdpowiedzi = []; 
 
-class Demo extends Component {
+class NowaAnkieta extends Component {
 
     state = {
-        wpisanaOdpowiedz: null,
-        wpisanaNazwaPytania: null,
+        wpisanaOdpowiedz: "",
+        
         nazwaAnkiety: "",
         pytanie: "",
         tresciOdpowiedzi: [{
             trescOdpowiedzi
         }],
-        nazwaAnkietyDisabled: false
+        nazwaAnkietyDisabled: false,
+        odpowiedzSerwera: "",
+        //style
+        pytaniaVisable: "pytanieConteinerHidden",
+        naglowekAnkiety: "Dodaj nową ankiete",
+        zatwierdzenieAnkietyButton: "zatwierdzenieAnkietyButton"
     }
     componentDidMount = () =>{
-        this.setState({
-            trescOdpowiedzi: this.state.tresciOdpowiedzi.splice(0, 1)
-        })
+        this.czyszczenieTresciOdpowiedzi();
     }
    
     uchwytZmienajacyStan = e =>{
@@ -27,16 +30,16 @@ class Demo extends Component {
             })
         }
     zmianaOdpowiedzi = e =>{
-
-        if (this.state.wpisanaOdpowiedz != null || this.state.wpisanaOdpowiedz != "") {     
             const trescOdpowiedzi = this.state.wpisanaOdpowiedz
-            this.setState({
+            if (trescOdpowiedzi === "" || trescOdpowiedzi===null || this.state.wpisanaOdpowiedz === " " || this.state.wpisanaOdpowiedz === "  ") {
+                alert("Nie można dodać pustej odpowiedzi!")
+            } else {
+                this.setState({
                 tresciOdpowiedzi: this.state.tresciOdpowiedzi.concat([{
                     trescOdpowiedzi
                 }])
             });
-            
-        }
+            }
         this.czyscOdpowiedz();
     }
     czyscOdpowiedz= () =>{
@@ -46,19 +49,17 @@ class Demo extends Component {
     }
     czyscPytanie = () =>{
         this.setState({
-            wpisanaNazwaPytania: ""
+            pytanie: ""
         })
     }
     czyszczenieTresciOdpowiedzi = () =>{
+    
         this.setState({
-            tresciOdpowiedzi: [{}]
+            trescOdpowiedzi: this.state.tresciOdpowiedzi.splice(0, this.state.tresciOdpowiedzi.length)
         })
     }
 
     pokazState = () =>{
-        // this.setState({
-        //     trescOdpowiedzi: this.state.tresciOdpowiedzi.splice(0, 1)
-        // })
         const nazwaAnkiety = this.state.nazwaAnkiety;
         const pytanie = this.state.pytanie;
         const tresciOdpowiedzi = this.state.tresciOdpowiedzi;
@@ -71,50 +72,72 @@ class Demo extends Component {
     }
 
     wyslijAnkiete = () => {
-        this.setState({
-            trescOdpowiedzi: this.state.tresciOdpowiedzi.splice(0, 1)
-        })
+
         const nazwaAnkiety = this.state.nazwaAnkiety;
         const pytanie = this.state.pytanie;
         const tresciOdpowiedzi = this.state.tresciOdpowiedzi;
         const ankieta = {
             nazwaAnkiety,
             pytanie,
-            tresciOdpowiedzi
+            tresciOdpowiedzi,
         }
+        
         fetch('http://localhost:8080/ankiety', {
             method: 'POST',
             headers : {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(ankieta)
-        })
+        })  
             .then( resp =>  resp.json())
             .then( data => console.log(data))
             this.czyscPytanie();
             this.czyscOdpowiedz();
             this.czyszczenieTresciOdpowiedzi();
-            this.setState({
-                nazwaAnkietyDisabled: true
-            })
-    }
 
+    }
+    usunWybranaOdpowiedz = (e) =>{
+        this.setState({
+            trescOdpowiedzi: this.state.tresciOdpowiedzi.splice(e.target.value, 1)
+        })
+    }
+    zatwierdzenieAnkiety = () => {
+        if (this.state.nazwaAnkiety === "") {
+            alert("Nazwa ankiety nie może być pusta!");
+        } else {
+            
+            this.setState({
+                    nazwaAnkietyDisabled: true,
+                    pytaniaVisable: "pytanieConteinerVisable",
+                    zatwierdzenieAnkietyButton: "pytanieConteinerHidden",
+                    naglowekAnkiety: "Ankieta"
+            })
+        }
+    }
+    
     render() {
         
         return (
+            
         <div className="containerDodawanieAnkiet">
                 <br></br>
-                <h2>Dodaj nową ankiete</h2>
-                <input placeholder="Ankieta" type="text" name="nazwaAnkiety" className="formPyt" className="formPyt" value={this.state.nazwaAnkiety} 
+                <h2>{this.state.naglowekAnkiety}</h2>
+                
+                <input placeholder="Wprowadz nazwę ankiety" type="text" name="nazwaAnkiety" className="formPyt"  value={this.state.nazwaAnkiety} 
                 onChange={this.uchwytZmienajacyStan} disabled={this.state.nazwaAnkietyDisabled} /><br></br>
-                <div>
+                <br></br>
+                <button onClick={this.zatwierdzenieAnkiety} className={this.state.zatwierdzenieAnkietyButton}>Dodaj ankiete</button>
+
+                <div className={this.state.pytaniaVisable}>
                 <h4>Dodaj nowe Pytanie</h4>
-                <input placeholder="Pytanie" type="text" name="wpisanaNazwaPytania" className="form-control" value={this.state.wpisanaNazwaPytania}
+                <input placeholder="Pytanie" type="text" name="pytanie" className="form-control" value={this.state.pytanie}
                 onChange={this.uchwytZmienajacyStan} /><br></br>
-                <div  className="container-s">
+                <div  className="container-s" name="odpowiedzi">
                     <h5>Lista odpowiedzi:</h5> 
                     <ul className="list-group">
-                        {this.state.tresciOdpowiedzi.map(odpowiedz => (<li key={trescOdpowiedzi} className="list-group-item">{odpowiedz.trescOdpowiedzi}</li>))}
+                        {this.state.tresciOdpowiedzi.map(odpowiedz => (<li key={odpowiedz} className="list-group-item">{odpowiedz.trescOdpowiedzi}
+                        <button className="przyciskUsun" value={this.state.tresciOdpowiedzi.indexOf(odpowiedz)} onClick={this.usunWybranaOdpowiedz}>X</button>
+                        </li>))}
                     </ul>
                     <br></br>
                     <br></br>
@@ -124,8 +147,8 @@ class Demo extends Component {
                     <input placeholder="Odpowiedz" type="text" name="wpisanaOdpowiedz" className="form-control"
                     value={this.state.wpisanaOdpowiedz} onChange={this.uchwytZmienajacyStan}
                     />
-                    <div class="input-group-append">
-                        <a type="text" onClick={this.zmianaOdpowiedzi} className="btn btn-outline-grey">Dodaj nową Odpowiedz</a>
+                    <div className="input-group-append">
+                        <a type="text" onClick={this.zmianaOdpowiedzi} href="#odpowiedzi" className="btn btn-outline-grey">Dodaj nową Odpowiedz</a>
                     </div>
                 </div>
                 
@@ -138,10 +161,11 @@ class Demo extends Component {
                 </div>
             
         </div>
+        
     );
     }
 }
 
 
 
-export default Demo;
+export default NowaAnkieta;
