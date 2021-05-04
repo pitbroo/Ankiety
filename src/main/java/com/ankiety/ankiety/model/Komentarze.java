@@ -17,8 +17,4 @@ public class Komentarze {
 
     public Komentarze() {
     }
-    /* @OneToOne(cascade = CascadeType.ALL, mappedBy = "komentarze")
-    //@MapsId
-    //@JoinColumn(name = "id_komentarza")
-    private OdpowiedziOsob odpowiedziOsob;*/
 }

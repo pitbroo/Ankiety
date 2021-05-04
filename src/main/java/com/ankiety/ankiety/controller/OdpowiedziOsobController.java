@@ -1,12 +1,16 @@
 package com.ankiety.ankiety.controller;
 
-import com.ankiety.ankiety.model.dto.PostFrontAnkiety;
+import com.ankiety.ankiety.model.OdpowiedziOsob;
+import com.ankiety.ankiety.model.dto.FilterOdpowiedziOsobDto;
 import com.ankiety.ankiety.model.dto.OdpowiedziOsobDto;
 import com.ankiety.ankiety.service.OdpowiedziOsobService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
+@Validated
 @RestController
 @RequestMapping("/odpowiedziOsob")
 public class OdpowiedziOsobController {
@@ -21,14 +25,15 @@ public class OdpowiedziOsobController {
     public List<OdpowiedziOsobDto> getOdpowiedziOsob(){
         return odpowiedziOsobService.getOdpowiedziOsob();
     }
-    /*@PostMapping
+
+    @PostMapping
     public List<OdpowiedziOsob> addOdpowiedziOsob(@RequestBody List<OdpowiedziOsobDto> odpowiedziOsobDtoList){
        return odpowiedziOsobService.addOdpowiedziOsob(odpowiedziOsobDtoList);
-    }*/
+    }
 
-    @PostMapping("/test")
-    public void dodajBrodziaka(@RequestBody PostFrontAnkiety postFrontAnkiety){
-        odpowiedziOsobService.dodajBrodziaka(postFrontAnkiety);
+    @PostMapping("/listaOdpowiedzi")
+    public List<FilterOdpowiedziOsobDto> addOdpowiedziDoAnkiety(@RequestBody List<@Valid FilterOdpowiedziOsobDto> filterOdpowiedziOsobDto){
+       return odpowiedziOsobService.addOdpowiedziDoAnkiety(filterOdpowiedziOsobDto);
     }
 
 }

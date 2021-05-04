@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface OsobyService {
     List<OsobyDto> getOsoby();
-    Osoby addOsoba(Osoby osoba);
+    Osoby addOsoba(OsobyDto osoba);
 }

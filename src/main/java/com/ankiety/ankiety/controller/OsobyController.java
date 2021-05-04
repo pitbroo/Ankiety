@@ -24,7 +24,7 @@ public class OsobyController {
     }
 
     @PostMapping
-    public Osoby addOsoby(@RequestBody @Valid Osoby osoba){
-        return osobyService.addOsoba(osoba);
+    public Osoby addOsoby(@RequestBody @Valid OsobyDto osobaDto){
+        return osobyService.addOsoba(osobaDto);
     }
 }

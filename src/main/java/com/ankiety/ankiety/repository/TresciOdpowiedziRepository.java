@@ -8,9 +8,8 @@ import java.util.Optional;
 
 @Repository
 public interface TresciOdpowiedziRepository extends JpaRepository<TresciOdpowiedzi, Integer> {
+
     boolean existsByTrescOdpowiedzi(String trescOdpowiedzi);
     Optional<TresciOdpowiedzi> findByTrescOdpowiedzi(String trescOdpowiedzi);
-
-    TresciOdpowiedzi findByIdTresciOdpowiedzi(int id);
 
 }

@@ -9,25 +9,20 @@ public class OdpowiedziOsobDto {
 
 
     private int idOdpowiedzi;
-    //@NotBlank
     private OsobyDto osoby;
-    //@NotBlank
     private AnkietyDto ankiety;
-    //@NotBlank
     private TresciOdpowiedziDto tresciOdpowiedzi;
-    //@NotBlank
     private KomentarzeDto komentarze;
 
     public OdpowiedziOsobDto() {
     }
 
-    /*public OdpowiedziOsobDto(OdpowiedziOsob source) {
-        this.idOdpowiedzi = source.getIdOdpowiedzi();
-        this.osoby = source.getOsoby();
-        this.ankiety = source.getAnkiety();
-        this.tresciOdpowiedzi = source.getTresciOdpowiedzi();
-        this.komentarze = source.getKomentarze();
-    }*/
+    public OdpowiedziOsobDto(OsobyDto osoby, AnkietyDto ankiety, TresciOdpowiedziDto tresciOdpowiedzi, KomentarzeDto komentarze) {
+        this.osoby = osoby;
+        this.ankiety = ankiety;
+        this.tresciOdpowiedzi = tresciOdpowiedzi;
+        this.komentarze = komentarze;
+    }
 
     @Override
     public String toString() {
