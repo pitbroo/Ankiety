@@ -1,6 +1,8 @@
 package com.ankiety.ankiety.service;
 
+import com.ankiety.ankiety.model.Ankiety;
 import com.ankiety.ankiety.model.OdpowiedziOsob;
+import com.ankiety.ankiety.model.Osoby;
 import com.ankiety.ankiety.model.dto.FilterOdpowiedziOsobDto;
 import com.ankiety.ankiety.model.dto.KomentarzeDto;
 import com.ankiety.ankiety.model.dto.OdpowiedziOsobDto;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OdpowiedziOsobServiceImpl implements OdpowiedziOsobService {
@@ -56,15 +59,43 @@ public class OdpowiedziOsobServiceImpl implements OdpowiedziOsobService {
 
     @Override
     public List<FilterOdpowiedziOsobDto> addOdpowiedziDoAnkiety(List<FilterOdpowiedziOsobDto> filterOdpowiedziOsobDto) {
+
         List<OdpowiedziOsob> odpowiedziOsobList = new ArrayList<>();
         filterOdpowiedziOsobDto.forEach(post ->{
-            odpowiedziOsobList.add(OdpowiedziOsobMapper.INSTANCE.odpowiedziOsobDtoToOdpowiedziOsob(new OdpowiedziOsobDto(OsobyMapper.INSTANCE.osobyToOsobyDto(osobyService.checkIpv4Exist(post.getIpv4())),
-                                        AnkietyMapper.INSTANCE.ankietyToAnkietyDto(ankietyRepository.findByNazwaAnkietyAndPytanie(post.getNazwaAnkiety(), post.getPytanie())),
-                                        TresciOdpowiedziMapper.INSTACNE.TresciOdpowiedziToTresciOdpowiedziDto(tresciOdpowiedziRepository.findByTrescOdpowiedzi(post.getTrescOdpowiedzi()).get()),
-                                        new KomentarzeDto(post.getKomentarz()))));
+            if(!checkOdpowiedziOsob(post)) {
+                odpowiedziOsobList.add(OdpowiedziOsobMapper.INSTANCE.odpowiedziOsobDtoToOdpowiedziOsob(new OdpowiedziOsobDto(OsobyMapper.INSTANCE.osobyToOsobyDto(osobyService.checkIpv4Exist(post.getIpv4())),
+                        AnkietyMapper.INSTANCE.ankietyToAnkietyDto(ankietyRepository.findByNazwaAnkietyAndPytanie(post.getNazwaAnkiety(), post.getPytanie()).get()),
+                        TresciOdpowiedziMapper.INSTACNE.TresciOdpowiedziToTresciOdpowiedziDto(tresciOdpowiedziRepository.findByTrescOdpowiedzi(post.getTrescOdpowiedzi()).get()),
+                        new KomentarzeDto(post.getKomentarz()))));
+            }
         });
 
         odpowiedziOsobRepository.saveAll(odpowiedziOsobList);
         return filterOdpowiedziOsobDto;
     }
+
+    //sprawdzenie czy dana osoba odpowiedziała już na dana ankiete -> jeśli tak, zwróci true, jeśli nie to false
+    public boolean checkOdpowiedziOsob(FilterOdpowiedziOsobDto filterOdpowiedziOsobDto){
+
+            Optional<Ankiety> ankietyOptional = ankietyRepository.findByNazwaAnkietyAndPytanie(filterOdpowiedziOsobDto.getNazwaAnkiety(), filterOdpowiedziOsobDto.getPytanie());
+            Optional<Osoby> osobyOptional = osobyRepository.findByIPv4(filterOdpowiedziOsobDto.getIpv4());
+
+            if(ankietyOptional.isPresent() && osobyOptional.isPresent()) {
+                Ankiety ankieta = ankietyOptional.get();
+                Osoby osoba = osobyOptional.get();
+
+                if (odpowiedziOsobRepository.existsOdpowiedziOsobsByAnkietyAndOsoby(ankieta, osoba)){
+                    System.out.println("Osoba o IPv4: " + osoba.getIPv4()
+                            + " odpowiedziała już na pytanie: '"
+                            + ankieta.getPytanie()
+                            + "' w ankiecie: '"
+                            + ankieta.getNazwaAnkiety()
+                            +"'");
+                    return true;
+                }
+            }
+            return false;
+        }
+
 }
+
