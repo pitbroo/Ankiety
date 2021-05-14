@@ -44,7 +44,7 @@ public class OsobyServiceImpl implements OsobyService {
             logger.info("IPv4: '" + ipv4 + "' jest już w bazie danych");
             return osobyRepository.findByIPv4(ipv4).get();
         }else {
-            logger.info("IPv4: '" + ipv4 + "' zostanie dodane do bazy danych");
+            logger.info("IPv4: '" + ipv4 + "' zostanie dodana do bazy danych");
             return osobyRepository.save(OsobyMapper.INSTANCE.osobyDtoToOsoby(new OsobyDto(ipv4)));
         }
     }

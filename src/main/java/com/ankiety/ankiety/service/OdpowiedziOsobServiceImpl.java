@@ -10,7 +10,12 @@ import com.ankiety.ankiety.model.dto.mapper.AnkietyMapper;
 import com.ankiety.ankiety.model.dto.mapper.OdpowiedziOsobMapper;
 import com.ankiety.ankiety.model.dto.mapper.OsobyMapper;
 import com.ankiety.ankiety.model.dto.mapper.TresciOdpowiedziMapper;
-import com.ankiety.ankiety.repository.*;
+import com.ankiety.ankiety.repository.AnkietyRepository;
+import com.ankiety.ankiety.repository.OdpowiedziOsobRepository;
+import com.ankiety.ankiety.repository.OsobyRepository;
+import com.ankiety.ankiety.repository.TresciOdpowiedziRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,15 +29,15 @@ public class OdpowiedziOsobServiceImpl implements OdpowiedziOsobService {
     private final AnkietyRepository ankietyRepository;
     private final OsobyRepository osobyRepository;
     private final TresciOdpowiedziRepository tresciOdpowiedziRepository;
-    private final KomentarzeRepository komentarzeRepository;
     private final OsobyServiceImpl osobyService;
 
-    public OdpowiedziOsobServiceImpl(OdpowiedziOsobRepository odpowiedziOsobRepository, AnkietyRepository ankietyRepository, OsobyRepository osobyRepository, TresciOdpowiedziRepository tresciOdpowiedziRepository, KomentarzeRepository komentarzeRepository, OsobyServiceImpl osobyService) {
+    private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    public OdpowiedziOsobServiceImpl(OdpowiedziOsobRepository odpowiedziOsobRepository, AnkietyRepository ankietyRepository, OsobyRepository osobyRepository, TresciOdpowiedziRepository tresciOdpowiedziRepository, OsobyServiceImpl osobyService) {
         this.odpowiedziOsobRepository = odpowiedziOsobRepository;
         this.ankietyRepository = ankietyRepository;
         this.osobyRepository = osobyRepository;
         this.tresciOdpowiedziRepository = tresciOdpowiedziRepository;
-        this.komentarzeRepository = komentarzeRepository;
         this.osobyService = osobyService;
     }
 
@@ -83,6 +88,12 @@ public class OdpowiedziOsobServiceImpl implements OdpowiedziOsobService {
             if(ankietyOptional.isPresent() && osobyOptional.isPresent()) {
                 Ankiety ankieta = ankietyOptional.get();
                 Osoby osoba = osobyOptional.get();
+
+                //sprawdzenie czy w ankiecie jest taka odpowiedź
+                if(ankieta.getTresciOdpowiedzi().stream().noneMatch(trescOdpowiedzi -> trescOdpowiedzi.getTrescOdpowiedzi().equals(filterOdpowiedziOsobDto.getTrescOdpowiedzi()))){
+
+                    throw new IllegalArgumentException("W ankiecie '" + ankieta.getNazwaAnkiety() + "' nie ma odpowiedzi: '" + filterOdpowiedziOsobDto.getTrescOdpowiedzi() +"' na pytanie: '" + filterOdpowiedziOsobDto.getPytanie() +"'.");
+                }
 
                 if (odpowiedziOsobRepository.existsOdpowiedziOsobsByAnkietyAndOsoby(ankieta, osoba)){
                     System.out.println("Osoba o IPv4: " + osoba.getIPv4()
