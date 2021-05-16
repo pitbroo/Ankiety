@@ -113,7 +113,10 @@ class Ankiety extends React.Component{
                       })}  */}
                       {this.state.odpowiedzKlienta}
                 <div className="buttonContainer">
-                    <p>{this.state.ipKlienta==="" ? "Pobieranie adresu IP..." : "Twoje IP: "+this.state.ipKlienta}</p>
+                    <div className="TwojeIp">
+                        {this.state.ipKlienta==="" ? "Pobieranie adresu IP..." : "Twoje IP: "+this.state.ipKlienta}
+                        <div className="OpisIP">Możesz tylko taz wypełnić<br></br> jedną ankietę   </div> 
+                    </div>
                     <button onClick={this.czysc} className="btn btn-dark">Czyść</button>
                
                     <button onClick={this.getAnkiety} className="btn btn-dark" >Pobierz dane</button>

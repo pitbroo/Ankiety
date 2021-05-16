@@ -14,6 +14,7 @@ import java.util.List;
 @Validated
 @RestController
 @RequestMapping("/odpowiedziOsob")
+@CrossOrigin("http://localhost:3000")
 public class OdpowiedziOsobController {
 
     private final OdpowiedziOsobService odpowiedziOsobService;
