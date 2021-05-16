@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style/Ankiety.css";
 // import { BoxLoading } from 'react-loadingg';
+import AnkietyPytania from './AnkietyPytania.js'
 
 
 class Ankiety extends React.Component{
@@ -131,7 +132,7 @@ class Ankiety extends React.Component{
 
                 </div>
                 
-                <Pytania pytania={this.state.ListaAnkiety} nazwaAnkiety={this.state.nazwaAnkiety}
+                <AnkietyPytania pytania={this.state.ListaAnkiety} nazwaAnkiety={this.state.nazwaAnkiety}
                 wybranaAnkieta={this.state.wybranaAnkieta} zaznaczonaAnkieta={this.zaznaczonaAnkieta}
                 wyslijJednaAnkiete={this.wyslijJednaAnkiete} pytanieZaznaczone={this.pytanieZaznaczone}/>
                 
@@ -141,43 +142,5 @@ class Ankiety extends React.Component{
     }
     
 }
-const Pytania = ({pytania, nazwaAnkiety, wybranaAnkieta, zaznaczonaAnkieta, wyslijJednaAnkiete, }) => {
-
-   let i = 1;
-   return(
-       <div >
-           <button onClick={wyslijJednaAnkiete}>zatwierdz</button>
-       <h1>{nazwaAnkiety}</h1>{}
-       <ul className="AnkietyKontener">
-           
-           {pytania.map(pytanie => 
-           
-               <li key={pytanie.idPytania} className="Pytanie">
-                   <b className="Pytanie" >{i++}. {pytanie.pytanie}</b>
-                   
-                   <br></br>
-                  <ul className="OdpowiedziKontaener">
-                   {pytanie.tresciOdpowiedzi.map(odpowiedzi => 
-                       
-                       <li>
-                           <input type="radio" onChange={zaznaczonaAnkieta}  value={odpowiedzi.trescOdpowiedzi} name={pytanie.pytanie}  id={document.getElementsByName("kometarz")}/> {odpowiedzi.trescOdpowiedzi}
-                       </li>
-                   )}
-                  </ul>
-                  <p>Komentarz(niewymagane):</p>
-                   <textarea name="kometarz" className="formKometarz"></textarea>
-               </li>
-               )}
-
-               { (wybranaAnkieta === "Brak") ? null : <WyslijBtn />}
-       </ul>
-       </div>
-   );
-}
-const WyslijBtn = () =>(
-    <input type="submit" className="btn btn-dark btn-lg" id="WyslijAnkietyBtn" ></input>
-);
-
-
 
 export default Ankiety;
