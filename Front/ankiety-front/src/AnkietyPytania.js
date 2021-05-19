@@ -5,7 +5,10 @@ import "./style/Ankiety.css"
 
 const AnkietyPytania = ({pytania, nazwaAnkiety, wybranaAnkieta}) => {
    let i = 1;
-   const zanzaczonaOdp = (odp) =>{
+   const [odp, setOdp] = useState();
+
+   const zanzaczonaOdp = (e) =>{
+       setOdp(e.target.value);
        console.log(odp)
    }
    return(
@@ -18,28 +21,25 @@ const AnkietyPytania = ({pytania, nazwaAnkiety, wybranaAnkieta}) => {
                <li key={pytanie.idPytania} className="Pytanie">
                    <b className="Pytanie" >{i++}. {pytanie.pytanie}</b>
                    {pytanie.tresciOdpowiedzi.map(odpowiedzi =>
-                    <Odpowiedz odpowiedz={odpowiedzi.trescOdpowiedzi} zanzaczonaDdp={zanzaczonaOdp()}/>
+                    <Odpowiedz odpowiedz={odpowiedzi.trescOdpowiedzi} zanzaczonaOdp={zanzaczonaOdp}/>
                    )}
                     <p>Komentarz(niewymagane):</p>
                     <textarea name="kometarz" className="formKometarz"></textarea>
                </li>
                )}
-               { (wybranaAnkieta === "Brak") ? null : <WyslijBtn />}
+               { (wybranaAnkieta === "Brak") ? null :  <input type="submit" className="btn btn-dark btn-lg" id="WyslijAnkietyBtn" ></input>}
        </ul>
        </div>
    );
 }
-const WyslijBtn = () =>(
-    <input type="submit" className="btn btn-dark btn-lg" id="WyslijAnkietyBtn" ></input>
-);
-const Odpowiedz = ({odpowiedz, zanzaczonaDdp}) =>{
+const Odpowiedz = ({odpowiedz, zanzaczonaOdp}) =>{
     const [odp, setOdp] = useState("")
     
     return(
         <>
     <ul className="OdpowiedziKontaener">
-            <li onChange={e => setOdp(e.target.value)}>
-                <input type="radio"   value={odpowiedz}  />{odpowiedz} 
+            <li onChange={zanzaczonaOdp}>
+                <input type="radio"  value={odpowiedz} defaultValue={odpowiedz} />{odpowiedz} 
             </li>
     </ul>
     </>
