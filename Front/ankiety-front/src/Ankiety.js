@@ -67,6 +67,7 @@ class Ankiety extends React.Component{
             pytanie: e.target.name2,
             kometarz: e.target.id
         })
+        console.log("+")
     }
     pytanieZaznaczone = (pytanie) => {
         this.setState({
@@ -92,25 +93,11 @@ class Ankiety extends React.Component{
         })
        console.log(odpowiedzKlienta)
 
-
-        //wysyłamnie
-        // fetch('http://localhost:8080/odpowiedziOsob/test', {
-        //     method: 'POST',
-        //     headers : {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(odpowiedzKlienta)
-        // })  
-        //     .then( resp =>  resp.json())
-        //     .then( data => console.log(data))
     }
       
     render(){
         return(
             <div className="buttonContainer">                
-                      {/* { this.state.ipKlienta.map((ipv4, index)=>{
-                          return(<div>{ipv4.ip}</div>)
-                      })}  */}
                       {this.state.odpowiedzKlienta}
                 <div className="buttonContainer">
                     <div className="TwojeIp">
@@ -136,8 +123,7 @@ class Ankiety extends React.Component{
                 </div>
                 
                 <AnkietyPytania pytania={this.state.ListaAnkiety} nazwaAnkiety={this.state.nazwaAnkiety}
-                wybranaAnkieta={this.state.wybranaAnkieta} zaznaczonaAnkieta={this.zaznaczonaAnkieta}
-                wyslijJednaAnkiete={this.wyslijJednaAnkiete} pytanieZaznaczone={this.pytanieZaznaczone}/>
+                wybranaAnkieta={this.state.wybranaAnkieta} wyslijJednaAnkiete={this.wyslijJednaAnkiete}/>
                 
             
             </div>

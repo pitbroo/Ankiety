@@ -1,29 +1,27 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { CardDeck } from 'react-bootstrap';
 import "./style/Ankiety.css"
 
-const AnkietyPytania = ({pytania, nazwaAnkiety, wybranaAnkieta, zaznaczonaAnkieta, wyslijJednaAnkiete }) => {
+const AnkietyPytania = ({pytania, nazwaAnkiety, wybranaAnkieta}) => {
    let i = 1;
+   const zanzaczonaOdp = (odp) =>{
+       console.log(odp)
+   }
    return(
        <div >
-           <button onClick={wyslijJednaAnkiete}>zatwierdz</button>
+           {/* Button tymczasowy? */}
+           {/* <button onClick={wyslijJednaAnkiete}>zatwierdz</button> */}
        <h1>{nazwaAnkiety}</h1>{}
        <ul className="AnkietyKontener">
            {pytania.map(pytanie => 
                <li key={pytanie.idPytania} className="Pytanie">
                    <b className="Pytanie" >{i++}. {pytanie.pytanie}</b>
-                   
-                   <br></br>
-                  <ul className="OdpowiedziKontaener">
                    {pytanie.tresciOdpowiedzi.map(odpowiedzi =>
-                       <li>
-                           <input type="radio" onChange={zaznaczonaAnkieta}  value={odpowiedzi.trescOdpowiedzi} name={pytanie.pytanie}  id={document.getElementsByName("kometarz")}/> {odpowiedzi.trescOdpowiedzi}
-                       </li>
+                    <Odpowiedz odpowiedz={odpowiedzi.trescOdpowiedzi} zanzaczonaDdp={zanzaczonaOdp()}/>
                    )}
-                  </ul>
-                  <p>Komentarz(niewymagane):</p>
-                   <textarea name="kometarz" className="formKometarz"></textarea>
+                    <p>Komentarz(niewymagane):</p>
+                    <textarea name="kometarz" className="formKometarz"></textarea>
                </li>
                )}
                { (wybranaAnkieta === "Brak") ? null : <WyslijBtn />}
@@ -34,5 +32,18 @@ const AnkietyPytania = ({pytania, nazwaAnkiety, wybranaAnkieta, zaznaczonaAnkiet
 const WyslijBtn = () =>(
     <input type="submit" className="btn btn-dark btn-lg" id="WyslijAnkietyBtn" ></input>
 );
+const Odpowiedz = ({odpowiedz, zanzaczonaDdp}) =>{
+    const [odp, setOdp] = useState("")
+    
+    return(
+        <>
+    <ul className="OdpowiedziKontaener">
+            <li onChange={e => setOdp(e.target.value)}>
+                <input type="radio"   value={odpowiedz}  />{odpowiedz} 
+            </li>
+    </ul>
+    </>
+    )
+}
 
 export default AnkietyPytania;
