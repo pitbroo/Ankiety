@@ -122,8 +122,8 @@ class Ankiety extends React.Component{
 
                 </div>
                 
-                <AnkietyPytania pytania={this.state.ListaAnkiety} nazwaAnkiety={this.state.nazwaAnkiety}
-                wybranaAnkieta={this.state.wybranaAnkieta} wyslijJednaAnkiete={this.wyslijJednaAnkiete}/>
+                <AnkietyPytania pytania={this.state.ListaAnkiety} nazwaWybranejAnkiety={this.state.wybranaAnkieta}
+                wybranaAnkieta={this.state.wybranaAnkieta} wyslijJednaAnkiete={this.wyslijJednaAnkiete} ip={this.state.ipKlienta}/>
                 
             
             </div>
