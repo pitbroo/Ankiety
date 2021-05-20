@@ -19,18 +19,28 @@ const AnkietyPytania = ({pytania, nazwaWybranejAnkiety, wybranaAnkieta, ip}) => 
         trescOdpowiedzi,
         kometarz
        }
-       if(listaOdpowiedzi.findIndex(element => element.pytanie == newObject.pytanie) == -1 ) {
-            setListaOdpowiedzi(listaOdpowiedzi.concat(newObject));
-            console.log(-1);
-       }else{
-            const index = listaOdpowiedzi.findIndex(element => element.pytanie == newObject.pytanie);
-            listaOdpowiedzi.splice(index, index + 1)
-            setListaOdpowiedzi(listaOdpowiedzi.concat(newObject));
-            console.log(index)
-       }
+    //    if (Array.isArray(listaOdpowiedzi)) {
+                if(listaOdpowiedzi.find(element => element.pytanie == newObject.pytanie) == -1 ) {
+                
+                console.log(-1);
+            }else{
+                const index = listaOdpowiedzi.findIndex(element => element.pytanie == newObject.pytanie);
+                
+                listaOdpowiedzi.splice(index, index + 1);
+                console.log(index)
+            }
+                setListaOdpowiedzi(listaOdpowiedzi.concat(newObject));
+            
+        }
+    //    else {
+    //        console.log("Błąd! nie jest tablicą!")
+    //    }
+       
+      
     //    setListaOdpowiedzi(listaOdpowiedzi.concat(newObject));
-            console.log(listaOdpowiedzi)
-   }
+            console.log("Ilość itemów: "+listaOdpowiedzi.length);
+            console.log(listaOdpowiedzi);
+//    }
    return(
        <div >
            {/* Button tymczasowy? */}
