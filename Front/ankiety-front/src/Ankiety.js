@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style/Ankiety.css";
 // import { BoxLoading } from 'react-loadingg';
 import AnkietyPytania from './AnkietyPytania.js'
+import ReactTooltip from 'react-tooltip';
 
 
 class Ankiety extends React.Component{
@@ -100,10 +101,12 @@ class Ankiety extends React.Component{
             <div className="buttonContainer">                
                       {this.state.odpowiedzKlienta}
                 <div className="buttonContainer">
-                    <div className="TwojeIp">
+                    
+                      <div data-tip="Ankieta jest w pełni anonimowa. Pobieramy IP, ponieważ tylko raz możesz wypełnić jedną ankiete." className="TwojeIp">
                         {this.state.ipKlienta==="" ? "Pobieranie adresu IP..." : "Twoje IP: "+this.state.ipKlienta}
                         <div className="OpisIP">Możesz tylko taz wypełnić<br></br> jedną ankietę   </div> 
                     </div>
+                    <ReactTooltip place="top" type="dark" effect="float"/>
                     <button onClick={this.czysc} className="btn btn-dark">Czyść</button>
                
                     <button onClick={this.getAnkiety} className="btn btn-dark" >Pobierz dane</button>
@@ -111,7 +114,7 @@ class Ankiety extends React.Component{
 
                     <h3>wybrana ankieta: {this.state.wybranaAnkieta}</h3>
 
-                    <select value={this.state.wybranaAnkieta}  onChange={this.zmianaWybranejAnkiety}>
+                    <select value={this.state.wybranaAnkieta} onChange={this.zmianaWybranejAnkiety}>
 
                     <option selected>Wybierz ankiete</option>
                         {this.state.nazwyAnkiet.map(wybranaAnkieta =>{

@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/komentarze")
+@CrossOrigin("*")
 public class KomentarzeController {
 
     private final KomentarzeService komentarzeService;

@@ -7,9 +7,12 @@ ul{
     display: inline;
     margin: 10px;
 }
+.btn-outline-danger, .btn-outline-success{
+    margin: 10px;
+}
 .btn-dark{
-    margin: 15px;
     background-color: #3d3939;
+    margin: 10px;
 }
 .AnkietyKontener{
     
@@ -179,4 +182,9 @@ ul{
 }
 .TwojeIp .OpisIP{
     font-size: x-small;
+}
+.btn-outline-info{
+   margin: 10px;
+   color: #1d1d1d;
+    border-color: #1d1d1d;
 }

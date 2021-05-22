@@ -11,7 +11,7 @@ class StronaGlowna extends React.Component {
             <div>
                 <br></br><br></br>
                 <h2>Witamy na naszej stronie z darmowymi ankietami</h2>
-                <h4>Tutaj możesz dodawać ankiety zupełnie za darmo oraz wypełniać istniejące ankiety.</h4>
+                <h4>Tutaj możesz dodawać ankiety zupełnie za darmo oraz wypełniać istniejące ankiety anonimowo.</h4>
                 <br></br>
 
                     <img className="box" src="https://super-monitoring.com/blogpl/wp-content/uploads/2020/12/social-polls.png" height="230px" alt="Ankiety obrazek"></img>

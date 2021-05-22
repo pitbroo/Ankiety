@@ -30,7 +30,7 @@ const AnkietyPytania = ({pytania, nazwaWybranejAnkiety, wybranaAnkieta, ip}) => 
                 console.log(index)
             }
                 setListaOdpowiedzi(listaOdpowiedzi.concat(newObject));
-            
+//    }
         }
     //    else {
     //        console.log("Błąd! nie jest tablicą!")
@@ -38,9 +38,21 @@ const AnkietyPytania = ({pytania, nazwaWybranejAnkiety, wybranaAnkieta, ip}) => 
        
       
     //    setListaOdpowiedzi(listaOdpowiedzi.concat(newObject));
-            console.log("Ilość itemów: "+listaOdpowiedzi.length);
-            console.log(listaOdpowiedzi);
-//    }
+    
+    // console.log("Ilość itemów: "+listaOdpowiedzi.length);
+    // console.log(listaOdpowiedzi);
+    const wyslijAnkiete = () =>{
+        console.log(listaOdpowiedzi); 
+        fetch('http://localhost:8080/odpowiedziOsob/listaOdpowiedzi', {
+            method: 'POST',
+            headers : {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(listaOdpowiedzi)
+        })
+            .then( resp =>  resp.json())
+            .then( data => console.log(data))
+    }
    return(
        <div >
            {/* Button tymczasowy? */}
@@ -57,7 +69,7 @@ const AnkietyPytania = ({pytania, nazwaWybranejAnkiety, wybranaAnkieta, ip}) => 
                     <textarea name="kometarz" className="formKometarz"></textarea>
                </li>
                )}
-               { (wybranaAnkieta === "Brak") ? null :  <input type="submit" className="btn btn-dark btn-lg" id="WyslijAnkietyBtn" ></input>}
+               { (wybranaAnkieta === "Brak") ? null :  <button type="submit" onClick={wyslijAnkiete} className="btn btn-dark btn-lg" id="WyslijAnkietyBtn" >WYSLIJ</button>}
        </ul>
        </div>
    );

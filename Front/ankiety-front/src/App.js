@@ -6,10 +6,10 @@ import Ankiety from './Ankiety.js';
 import Footer from './Footer.js';
 import StronaGlowna from './StronaGlowna.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import NowaAnkieta from './NowaAnkieta.js'
+import NowaAnkieta from './NowaAnkieta/NowaAnkieta.js'
 import Wyniki from './Wyniki.js';
-
 import React, { Component } from 'react';
+import AnkietaWyslana from './NowaAnkieta/AnkietaWyslana';
 
 class App extends Component {
   state = {
@@ -38,6 +38,7 @@ class App extends Component {
             {/* <Route path="/DodajAnkiete" component={DodawanieAnkiety}/> */}
             <Route path="/NowaAnkieta" component={NowaAnkieta} />
             <Route path="/Wyniki" component={Wyniki} />
+            <Route path="/AnkietaWyslana" component={AnkietaWyslana} />
           </main>
         </Router>
         <Footer />
